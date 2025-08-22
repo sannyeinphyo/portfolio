@@ -1,16 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
-
   const linkClass = ({ isActive }) =>
     isActive
-      ? "px-4 py-2 text-blue-500 font-bold border-b-2 border-blue-500"
-      : "px-4 py-2 text-gray-600 hover:text-blue-400";
+      ? "px-4 py-2 text-cyan-500 font-bold  rounded-lg border-2 border-cyan-400"
+      : "px-4 py-2 text-cyan-200 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition";
 
   return (
-    <nav className="flex gap-4">
+    <nav className="flex gap-4 justify-center p-4 sticky">
       <NavLink to="/link/home" className={linkClass}>
         Home
       </NavLink>

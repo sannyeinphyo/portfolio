@@ -29,18 +29,21 @@ function DownloadPage() {
 
 export default function App() {
   return (
-    <div className="h-screen relative">
+    <div className="min-h-screen relative">
       <div
-        className="h-screen w-screen bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/background.jpg')" }}
+        className="min-h-screen w-screen bg-cover bg-center bg-repeat"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right bottom, #530781, #531484, #541e86, #542589, #552c8b, #512e84, #4e307e, #4b3277, #433066, #3c2e55, #352b45, #2d2835)",
+        }}
       >
-        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-          <div className="bg-white/80 backdrop-blur-md shadow-lg rounded-2xl px-6 py-3 back">
+        <div className="fixed top-0 left-0 w-full z-50">
+          <div className="backdrop-blur-lg shadow-lg rounded-b-2xl px-6 py-3 flex justify-center">
             <NavBar />
           </div>
         </div>
 
-        <div className=" h-full">
+        <div className="h-full flex flex-col pt-20 text-cyan-400">
           <Routes>
             <Route index element={<HomePage />} />
             <Route path="/link/home" element={<HomePage />} />
