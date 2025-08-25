@@ -1,9 +1,61 @@
-import React from 'react'
+import React from "react";
+import { motion } from "framer-motion";
 
-export default function contact() {
+export default function ContactSection() {
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
   return (
-    <div>
-      this is contact page
+    <div className="relative min-h-screen bg-gray-900 text-white flex items-center justify-center p-8">
+      <motion.div
+        className="max-w-2xl w-full space-y-8"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold text-center">
+          Get in Touch
+        </h2>
+
+        {/* Formspree static form */}
+        <form
+          action="https://formspree.io/f/xjkevvvy" 
+          method="POST"
+          className="flex flex-col gap-6 bg-gray-800 p-8 rounded-2xl shadow-lg"
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            className="p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          />
+          <input
+            type="email"
+            name="_replyto"
+            placeholder="Your Email"
+            required
+            className="p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows={5}
+            required
+            className="p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
+          />
+          <motion.button
+            type="submit"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold shadow-lg hover:bg-blue-700 transition-colors"
+          >
+            Send Message 🚀
+          </motion.button>
+        </form>
+      </motion.div>
     </div>
-  )
+  );
 }

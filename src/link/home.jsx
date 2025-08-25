@@ -1,119 +1,320 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaEnvelope, FaLinkedin, FaGithub, FaTelegram } from "react-icons/fa";
+import { Typewriter } from "react-simple-typewriter";
 
 export default function Home() {
+  const fadeUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
+  const listItem = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+  };
+
+  const skills = [
+    "HTML / CSS",
+    "JavaScript / TypeScript",
+    "Figma",
+    "React & Next.js",
+    "Node.js & Express",
+    "Tailwind CSS & MUI",
+    "MySQL & Prisma",
+    "MongodDB",
+    "Python",
+    "Bootstrap & Python",
+    "CCNA & MS",
+  ];
+
+  const socials = [
+    {
+      icon: <FaEnvelope className="text-amber-200" />,
+      text: "sannyeinphyo@gmail.com",
+      link: "mailto:sannyeinphyo@gmail.com",
+    },
+    {
+      icon: <FaLinkedin className="text-blue-600 " />,
+      text: "linkedin.com/in/sannyeinphyo",
+      link: "https://linkedin.com/in/sannyeinphyo",
+    },
+    {
+      icon: <FaGithub />,
+      text: "github.com/sannyeinphyo",
+      link: "https://github.com/sannyeinphyo",
+    },
+    {
+      icon: <FaTelegram className="text-blue-400" />,
+      text: "t.me/sannyeinphyo",
+      link: "https://t.me/sannyeinphyo",
+    },
+  ];
+
+  const projects = [
+    "InternLink: A full-stack internship portal built with Next.js, Node.js, and MySQL.",
+    "Portfolio Website: My personal portfolio using React, Tailwind, and Framer Motion animations.",
+    "Job Board App: Internship listing app with filtering and real-time notifications.",
+  ];
+
+  const experience = [
+    {
+      role: "Full Stack Developer - Intern",
+      company: "Ultimate Solution Company",
+      duration: "Internship",
+      description:
+        "Built responsive dashboards using React, Next.js, Node.js, Tailwind, and MUI.",
+    },
+  ];
+
+  const education = [
+    {
+      degree: "B.Sc. in Computer Science",
+      institution: "University of Hinthada",
+      year: "2016 - 2025",
+    },
+  ];
+
   return (
-    <div className="min-h-screen grid grid-rows-[auto_auto_auto_1fr] mt-4 relative">
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/20 z-0"></div>
-
-      <div className="relative z-10 p-4 text-white">
-        {/* Title */}
-        <div className="flex items-center justify-center mb-4">
-          <div className="font-extrabold text-3xl text-cyan-50">
-            Welcome To My Portfolio
+    <div className="min-h-screen relative p-6 bg-gray-900 text-white flex flex-col gap-12">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.2 }}
+        variants={fadeUp}
+        className="relative z-10 text-center space-y-4"
+      >
+        <h1 className="text-6xl font-extrabold text-cyan-200">
+          Welcome To My Portfolio
+        </h1>
+        <motion.div
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ amount: 0.2 }}
+          transition={{ duration: 1 }}
+          variants={fadeUp}
+          className="relative z-10 text-center space-y-4"
+        >
+          <div className="text-6xl font-bold text-lime-400 mt-2">
+            Hello, I am
           </div>
-        </div>
-
-        {/* Profile Section */}
-        <div className="flex flex-col items-center justify-center bg-gray-800/70 p-6 rounded-lg mb-4">
-          <div className="h-full bg-contain bg-no-repeat mb-4">
-            <img
-              src="/background.jpg"
-              alt="my-photo"
-              height={256}
-              width={256}
-              style={{ borderRadius: ".5rem" }}
-            />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: -200 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ amount: 0.2 }}
+          transition={{ duration: 1 }}
+          variants={fadeUp}
+          className="relative z-10 text-center space-y-4"
+        >
+          <div className="text-6xl font-bold text-amber-300 mt-2">
+            San Nyein <span className="text-fuchsia-500">Phyo</span>
           </div>
-          <div className="text-lg text-cyan-200 text-center max-w-2xl">
-            <div className="text-6xl text-shadow-cyan-400 font-bold">Hello , </div>
-            <div className="text-6xl font-bold">I am</div>
-            <div className="text-6xl font-bold text-amber-300">
-              San Nyein <span className="text-fuchsia-500">Phyo</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Intro Section */}
-        <div className="flex flex-row items-center justify-center bg-gray-800/70 p-6 rounded-lg mb-4 gap-4">
-          <div className="text-lg text-cyan-200 text-center flex-1 max-w-2xl">
-            This is Testing
-          </div>
-          <div className="text-lg text-cyan-200 text-center flex-1 max-w-2xl">
-            I build modern web applications that are not only functional but
-            also visually appealing. Here you can find my skills, projects, and
-            ways to contact me.
-          </div>
-        </div>
-
-        {/* Main Content */}
-        <div className="grid grid-cols-12 gap-4">
-          {/* Left Column */}
-          <motion.div
-            className="col-span-6 bg-gray-800/70 p-6 rounded-lg flex flex-col justify-start gap-4"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+        </motion.div>
+        <p className="text-lg text-gray-300 mt-4">
+          <Typewriter
+            words={[
+              " Full-stack web developer building interactive applications with modern technologies.",
+            ]}
+            
           >
-            <h2 className="text-2xl font-bold text-cyan-400">About Me</h2>
-            <p>
-              Hello! I'm a passionate developer who loves building web
-              applications with React, Next.js, and Tailwind CSS. I enjoy
-              creating modern, responsive interfaces and learning new
-              technologies.
-            </p>
+            F
+          </Typewriter>
+        </p>
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          className="inline-block mt-4 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 rounded-lg font-semibold text-black transition-colors duration-300"
+        >
+          Download Resume
+        </a>
+      </motion.div>
 
-            <h2 className="text-2xl font-bold text-cyan-400 mt-4">Skills</h2>
-            <ul className="list-disc list-inside">
-              <li>JavaScript / TypeScript</li>
-              <li>React & Next.js</li>
-              <li>Node.js & Express</li>
-              <li>Tailwind CSS & MUI</li>
-              <li>MySQL & Prisma</li>
-              <li>Bootstrap & Python</li>
-              <li>CCNA & MS</li>
-            </ul>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.2 }}
+        variants={fadeUp}
+        className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 p-6 rounded-xl bg-gray-800/70 shadow-lg hover:shadow-2xl transition-shadow duration-500"
+      >
+        <motion.img
+          src="/background.jpg"
+          alt="my-photo"
+          className="w-full md:w-1/2 h-64 rounded-xl object-cover"
+          initial={{ opacity: 0, x: -200 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ amount: 0.2 }}
+        />
+        <motion.p
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ amount: 0.2 }}
+          className="md:w-1/2 text-center md:text-left text-lg"
+        >
+          I build modern web applications that are functional and visually
+          appealing. Explore my skills, projects, experience, and ways to
+          contact me.
+        </motion.p>
+      </motion.div>
 
-            <h2 className="text-2xl font-bold text-cyan-400 mt-4">Contact</h2>
-            <p>Email: yourname@example.com</p>
-            <p>LinkedIn: linkedin.com/in/yourprofile</p>
-            <p>GitHub: github.com/yourusername</p>
-          </motion.div>
-
-          {/* Right Column */}
-          <motion.div
-            className="col-span-6 bg-gray-700/70 p-6 rounded-lg flex flex-col justify-start gap-4"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
+      <div className="grid md:grid-cols-2 gap-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.2 }}
+          variants={fadeUp}
+          className="bg-gray-800/70 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-500"
+        >
+          <h2 className="text-2xl font-bold text-cyan-400 mb-4">Skills</h2>
+          <motion.ul
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.2 }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.2 } },
+            }}
+            className="list-disc list-inside space-y-1 text-lg"
           >
-            <h2 className="text-2xl font-bold text-cyan-400">Projects</h2>
-            <ul className="list-disc list-inside">
-              <li>
-                <strong>InternLink:</strong> A full-stack internship portal
-                built with Next.js, Node.js, and MySQL.
-              </li>
-              <li>
-                <strong>Portfolio Website:</strong> My personal portfolio using
-                React, Tailwind, and Framer Motion animations.
-              </li>
-              <li>
-                <strong>Job Board App:</strong> Internship listing app with
-                filtering and real-time notifications.
-              </li>
-            </ul>
+            {skills.map((item, i) => (
+              <motion.li
+                key={i}
+                variants={listItem}
+                className="hover:text-cyan-300 transition-colors duration-300"
+              >
+                {item}
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.div>
 
-            <h2 className="text-2xl font-bold text-cyan-400 mt-4">
-              Highlights
-            </h2>
-            <p>
-              Successfully completed multiple full-stack projects and
-              collaborated with teams to deliver modern web solutions.
-            </p>
-          </motion.div>
-        </div>
+        {/* Contact */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.2 }}
+          variants={fadeUp}
+          className="bg-gray-800/70 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-500"
+        >
+          <h2 className="text-2xl font-bold text-cyan-400 mb-4">Contact</h2>
+          <motion.ul
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.2 }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.2 } },
+            }}
+            className="space-y-3 text-lg"
+          >
+            {socials.map((item, i) => (
+              <motion.li
+                key={i}
+                variants={listItem}
+                className="flex items-center gap-3 hover:text-cyan-300 transition-colors duration-300"
+              >
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3"
+                >
+                  <span className="text-xl">{item.icon}</span>
+                  <span>{item.text}</span>
+                </a>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.div>
       </div>
+
+      {/* Experience Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.2 }}
+        variants={fadeUp}
+        className="bg-gray-700/70 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-500"
+      >
+        <h2 className="text-2xl font-bold text-cyan-400 mb-4">Experience</h2>
+        <motion.ul
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.2 } },
+          }}
+          className="list-disc list-inside space-y-2 text-lg"
+        >
+          {experience.map((item, i) => (
+            <motion.li key={i} variants={listItem}>
+              <span className="font-semibold">{item.role}</span> at{" "}
+              {item.company} ({item.duration}) - {item.description}
+            </motion.li>
+          ))}
+        </motion.ul>
+      </motion.div>
+
+      {/* Education Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.2 }}
+        variants={fadeUp}
+        className="bg-gray-700/70 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-500"
+      >
+        <h2 className="text-2xl font-bold text-cyan-400 mb-4">Education</h2>
+        <motion.ul
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.2 } },
+          }}
+          className="list-disc list-inside space-y-2 text-lg"
+        >
+          {education.map((item, i) => (
+            <motion.li key={i} variants={listItem}>
+              {item.degree} - {item.institution} ({item.year})
+            </motion.li>
+          ))}
+        </motion.ul>
+      </motion.div>
+
+      {/* Projects Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.2 }}
+        variants={fadeUp}
+        className="bg-gray-700/70 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-500"
+      >
+        <h2 className="text-2xl font-bold text-cyan-400 mb-4">Projects</h2>
+        <motion.ul
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.2 } },
+          }}
+          className="list-disc list-inside space-y-2 text-lg"
+        >
+          {projects.map((item, i) => (
+            <motion.li
+              key={i}
+              variants={listItem}
+              className="hover:text-cyan-300 transition-colors duration-300"
+            >
+              {item}
+            </motion.li>
+          ))}
+        </motion.ul>
+      </motion.div>
     </div>
   );
 }

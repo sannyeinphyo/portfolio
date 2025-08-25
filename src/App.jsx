@@ -38,12 +38,12 @@ export default function App() {
         }}
       >
         <div className="fixed top-0 left-0 w-full z-50">
-          <div className="backdrop-blur-lg shadow-lg rounded-b-2xl px-6 py-3 flex justify-center">
+          <div className="backdrop-blur-lg shadow-lg px-6 py-3 flex justify-center bg-black/40">
             <NavBar />
           </div>
         </div>
 
-        <div className="h-full flex flex-col pt-20 text-cyan-400">
+        <div className="h-full flex flex-col pt-24 text-cyan-400">
           <Routes>
             <Route index element={<HomePage />} />
             <Route path="/link/home" element={<HomePage />} />
