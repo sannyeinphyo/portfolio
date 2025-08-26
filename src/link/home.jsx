@@ -23,7 +23,6 @@ export default function Home() {
     "Tailwind CSS & MUI",
     "MySQL & Prisma",
     "MongodDB / Restful API",
-    "Python",
     "Bootstrap & Python",
     "CCNA & MS",
   ];

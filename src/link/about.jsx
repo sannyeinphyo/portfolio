@@ -5,50 +5,87 @@ import {
   SiNextdotjs,
   SiMysql,
   SiTailwindcss,
+  SiBootstrap,
   SiFramer,
   SiJavascript,
+  SiPrisma,
+  SiHtml5,
+  SiCss3,
+  SiFigma,
+  SiMongodb,
+  SiPostman,
+  SiMui,
 } from "react-icons/si";
 import { Link } from "react-router-dom";
-import { Typewriter } from "react-simple-typewriter";
 
 export default function About() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
   const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   const skillVariants = {
-    hidden: { opacity: 0, y: 20, scale: 1 },
-    visible: { opacity: 1, y: 0, scale: 1 },
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   const skills = [
+    { name: "HTML", icon: <SiHtml5 className="text-orange-500 text-4xl" /> },
+    { name: "CSS", icon: <SiCss3 className="text-blue-500 text-4xl" /> },
+    {
+      name: "JavaScript",
+      icon: <SiJavascript className="text-yellow-300 text-4xl" />,
+    },
+    { name: "Figma", icon: <SiFigma className=" text-purple-500 text-4xl" /> },
     { name: "React", icon: <FaReact className="text-sky-400 text-4xl" /> },
     { name: "Next.js", icon: <SiNextdotjs className="text-white text-4xl" /> },
     { name: "Node.js", icon: <FaNodeJs className="text-green-500 text-4xl" /> },
+    { name: "Git", icon: <FaGitAlt className="text-orange-500 text-4xl" /> },
+    { name: "API", icon: <SiPostman className="text-orange-500 text-4xl" /> },
+    {
+      name: "Mongodb",
+      icon: <SiMongodb className="text-green-500 text-4xl" />,
+    },
     { name: "MySQL", icon: <SiMysql className="text-yellow-400 text-4xl" /> },
+    { name: "Prisma", icon: <SiPrisma className="text-cyan-300 text-4xl" /> },
     {
       name: "Tailwind",
       icon: <SiTailwindcss className="text-cyan-400 text-4xl" />,
     },
     {
+      name: "Bootstrap",
+      icon: <SiBootstrap className="text-purple-600 text-4xl" />,
+    },
+    {
+      name: "MUI",
+      icon: <SiMui className="text-blue-700 text-4xl" />,
+    },
+    {
       name: "Framer Motion",
       icon: <SiFramer className="text-pink-400 text-4xl" />,
-    },
-    { name: "Git", icon: <FaGitAlt className="text-orange-500 text-4xl" /> },
-    {
-      name: "JavaScript",
-      icon: <SiJavascript className="text-yellow-300 text-4xl" />,
     },
   ];
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center p-8">
-      <div className="max-w-4xl w-full space-y-12">
+      <motion.div
+        className="max-w-4xl w-full space-y-12"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <motion.h1
           variants={fadeUp}
-          initial="hidden"
-          animate="visible"
           className="text-4xl md:text-5xl font-bold text-center"
         >
           About Me
@@ -56,9 +93,6 @@ export default function About() {
 
         <motion.p
           variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.2 }}
           className="text-lg md:text-xl text-gray-300 text-center leading-relaxed"
         >
           Hi, I'm{" "}
@@ -72,26 +106,21 @@ export default function About() {
         </motion.p>
 
         <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.4 }}
+          variants={containerVariants}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
         >
           {skills.map((skill, idx) => (
             <motion.div
               key={idx}
               variants={skillVariants}
-              initial="hidden"
-              animate="visible"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
+              whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
               drag
               dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
               dragElastic={0.2}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:bg-gray-700 transition flex flex-col items-center gap-3 cursor-grab active:cursor-grabbing"
-            >{skill.icon}
+            >
+              {skill.icon}
               <span className="text-base font-medium text-gray-200">
                 {skill.name}
               </span>
@@ -99,29 +128,20 @@ export default function About() {
           ))}
         </motion.div>
 
-        {/* Personal Touch */}
         <motion.div
           variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.6 }}
           className="text-center text-gray-400 text-lg"
         >
           <p>
             Outside of coding, I enjoy exploring{" "}
             <span className="text-pink-400">design trends</span>, playing{" "}
-            <span className="text-purple-400">games</span>, and trying out{" "}
-            <span className="text-green-400">new recipes</span>.
+            <span className="text-purple-400">games</span>,{" "}
+            <span className="text-green-400">waching movies </span> and
+            <span className="text-yellow-400"> series</span>.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.8 }}
-          className="flex justify-center"
-        >
+        <motion.div variants={fadeUp} className="flex justify-center">
           <Link
             to="/link/contact"
             className="px-6 py-3 bg-blue-500 text-white rounded-xl font-semibold shadow-lg hover:bg-blue-600 transition"
@@ -129,7 +149,7 @@ export default function About() {
             Let's Connect 🚀
           </Link>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 }

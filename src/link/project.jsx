@@ -3,28 +3,33 @@ import { motion } from "framer-motion";
 
 // Map tech to colors
 const techColors = {
-  "React": "bg-cyan-500",
+  React: "bg-cyan-500",
   "Next.js": "bg-gray-700 text-white",
   "Tailwind CSS": "bg-teal-500",
   "Node.js": "bg-green-500",
-  "MySQL": "bg-blue-800",
+  MySQL: "bg-blue-800",
   "Framer Motion": "bg-purple-500",
-  "Vite": "bg-amber-300",
+  Vite: "bg-amber-300",
+  Prisma: " bg-fuchsia-600",
+  "MUI":"bg-blue-700",
+  "Typewriter":"bg-cyan-400",
+  "OCR":"bg-amber-400"
 };
 
 const projects = [
   {
     title: "Student Internship Portal",
     description:
-      "A full-stack web app for students to find internships and part-time jobs.",
-    tech: ["React", "Next.js", "Tailwind CSS", "Node.js", "MySQL"],
+      "A full-stack web app for students to find internships ,can schedule interview/accept or rejecct from the company , and also include Student Id Scanning ",
+    tech: ["React", "Next.js", "Tailwind CSS", "Node.js", "MySQL", "Prisma","MUI", "Framer Motion" , "Typewriter" , "OCR",],
     github: "https://github.com/sannyeinphyo/internlink",
     live: "https://sannyeinphyo.github.io/internlink",
     image: "/portfolio/images/internlink.png",
   },
   {
     title: "Portfolio Website",
-    description: "My personal portfolio built with Vite + React and Tailwind CSS.",
+    description:
+      "My personal portfolio built with Vite + React and Tailwind CSS.",
     tech: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/sannyeinphyo/portfolio",
     live: "https://sannyeinphyo.github.io/portfolio",
@@ -42,8 +47,8 @@ const projects = [
 
 export default function Project() {
   const cardVariants = {
-    hidden: { opacity: 0, scale: 1 },
-    visible: { opacity: 1,scale: 1 },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, scale: 1 },
   };
 
   return (
@@ -54,11 +59,16 @@ export default function Project() {
         {projects.map((project, idx) => (
           <motion.div
             key={idx}
-            className="bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transform transition duration-300"
+            className="bg-gray-800 rounded-2xl shadow-lg overflow-hidden"
             variants={cardVariants}
             initial="hidden"
             animate="visible"
-            transition={{ delay: idx * 0.2 }}
+            transition={{ delay: idx * 0.3, duration: 0.5 }}
+            whileTap={{ scale: 0.98 }}
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.1, delay: 0 }, 
+            }}
           >
             {project.image && (
               <img
@@ -69,8 +79,12 @@ export default function Project() {
             )}
 
             <div className="p-6">
-              <h2 className="text-2xl font-semibold mb-2 min-h-24">{project.title}</h2>
-              <p className="text-gray-300 mb-4 turncate w-full">{project.description}</p>
+              <h2 className="text-2xl font-semibold mb-2 min-h-24">
+                {project.title}
+              </h2>
+              <p className="text-gray-300 mb-4 turncate w-full">
+                {project.description}
+              </p>
 
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((tech, i) => (

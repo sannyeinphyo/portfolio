@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
+
 export default function ContactSection() {
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -30,11 +31,7 @@ export default function ContactSection() {
         headers: { Accept: "application/json" },
       });
 
-      setFormData({
-        name: "",
-        _replyto: "",
-        message: "",
-      });
+      setFormData({ name: "", _replyto: "", message: "" });
 
       toast.success("Message sent successfully! 🚀");
     } catch (error) {
@@ -45,7 +42,7 @@ export default function ContactSection() {
   return (
     <div className="relative min-h-screen bg-gray-900 text-white flex items-center justify-center p-8">
       <motion.div
-        className="max-w-2xl w-full space-y-8"
+        className="max-w-3xl w-full space-y-8"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -53,7 +50,7 @@ export default function ContactSection() {
         <h2 className="text-4xl md:text-5xl font-bold text-center">
           Get in Touch
         </h2>
-
+        {/* Contact Form */}
         <form
           action="https://formspree.io/f/xjkevvvy"
           method="POST"
@@ -96,6 +93,44 @@ export default function ContactSection() {
             Send Message 🚀
           </motion.button>
         </form>
+
+        <div className="flex flex-col md:flex-row justify-around gap-8 bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <div className="flex flex-col gap-2">
+            <h3 className="font-semibold text-xl">📍 Address</h3>
+            <p>Yangon, Myanmar</p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h3 className="font-semibold text-xl">📧 Email</h3>
+            <p>sannyeinphyo@gmail.com</p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h3 className="font-semibold text-xl">📞 Phone</h3>
+            <p>+95 9 788 350 22</p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h3 className="font-semibold text-xl">🌐 Social</h3>
+            <div className="flex gap-4">
+              <a
+                href="https://linkedin.com/in/sannyeinphyo"
+                className="hover:text-blue-500"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/sannyeinphyo"
+                className="hover:text-blue-400"
+              >
+                Github
+              </a>
+              <a
+                href="https://t.me/sannyeinphyo"
+                className="hover:text-pink-500"
+              >
+                Telegram
+              </a>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </div>
   );
