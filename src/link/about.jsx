@@ -17,6 +17,11 @@ export default function About() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
+  const skillVariants = {
+    hidden: { opacity: 0, y: 20, scale: 1 },
+    visible: { opacity: 1, y: 0, scale: 1 },
+  };
+
   const skills = [
     { name: "React", icon: <FaReact className="text-sky-400 text-4xl" /> },
     { name: "Next.js", icon: <SiNextdotjs className="text-white text-4xl" /> },
@@ -56,14 +61,14 @@ export default function About() {
           transition={{ delay: 0.2 }}
           className="text-lg md:text-xl text-gray-300 text-center leading-relaxed"
         >
-            Hi, I'm{" "}
-            <span className="text-blue-400 font-semibold">San Nyein Phyo</span>{" "}
-            — a passionate web developer who loves creating{" "}
-            <span className="text-blue-300">modern, user-friendly</span>{" "}
-            applications. I specialize in{" "}
-            <span className="text-green-300">React, Next.js, Node.js,</span> and{" "}
-            <span className="text-yellow-300">MySQL</span>. I enjoy transforming
-            ideas into clean, functional solutions.
+          Hi, I'm{" "}
+          <span className="text-blue-400 font-semibold">San Nyein Phyo</span> —
+          a passionate web developer who loves creating{" "}
+          <span className="text-blue-300">modern, user-friendly</span>{" "}
+          applications. I specialize in{" "}
+          <span className="text-green-300">React, Next.js, Node.js,</span> and{" "}
+          <span className="text-yellow-300">MySQL</span>. I enjoy transforming
+          ideas into clean, functional solutions.
         </motion.p>
 
         <motion.div
@@ -76,14 +81,17 @@ export default function About() {
           {skills.map((skill, idx) => (
             <motion.div
               key={idx}
+              variants={skillVariants}
+              initial="hidden"
+              animate="visible"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               drag
               dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
               dragElastic={0.2}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:bg-gray-700 transition flex flex-col items-center gap-3 cursor-grab active:cursor-grabbing"
-            >
-              {skill.icon}
+            >{skill.icon}
               <span className="text-base font-medium text-gray-200">
                 {skill.name}
               </span>

@@ -1,10 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-
+import toast from "react-hot-toast";
 export default function ContactSection() {
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
+  const [formData, setFormData] = useState({
+    name: "",
+    _replyto: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      setFormData({
+        name: "",
+        _replyto: "",
+        message: "",
+      });
+
+      toast.success("Message sent successfully! 🚀");
+    } catch (error) {
+      toast.error("Oops! There was a problem sending your message.");
+    }
   };
 
   return (
@@ -19,10 +54,10 @@ export default function ContactSection() {
           Get in Touch
         </h2>
 
-        {/* Formspree static form */}
         <form
-          action="https://formspree.io/f/xjkevvvy" 
+          action="https://formspree.io/f/xjkevvvy"
           method="POST"
+          onSubmit={handleSubmit}
           className="flex flex-col gap-6 bg-gray-800 p-8 rounded-2xl shadow-lg"
         >
           <input
@@ -30,6 +65,8 @@ export default function ContactSection() {
             name="name"
             placeholder="Your Name"
             required
+            value={formData.name}
+            onChange={handleChange}
             className="p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           />
           <input
@@ -37,6 +74,8 @@ export default function ContactSection() {
             name="_replyto"
             placeholder="Your Email"
             required
+            value={formData._replyto}
+            onChange={handleChange}
             className="p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           />
           <textarea
@@ -44,6 +83,8 @@ export default function ContactSection() {
             placeholder="Your Message"
             rows={5}
             required
+            value={formData.message}
+            onChange={handleChange}
             className="p-4 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
           />
           <motion.button

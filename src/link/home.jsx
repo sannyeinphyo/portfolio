@@ -22,7 +22,7 @@ export default function Home() {
     "Node.js & Express",
     "Tailwind CSS & MUI",
     "MySQL & Prisma",
-    "MongodDB",
+    "MongodDB / Restful API",
     "Python",
     "Bootstrap & Python",
     "CCNA & MS",
@@ -138,9 +138,9 @@ export default function Home() {
         className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 p-6 rounded-xl bg-gray-800/70 shadow-lg hover:shadow-2xl transition-shadow duration-500"
       >
         <motion.img
-          src="/background.jpg"
+          src="/portfolio/profile.jpg"
           alt="my-photo"
-          className="w-full md:w-1/2 h-64 rounded-xl object-cover"
+          className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover"
           initial={{ opacity: 0, x: -200 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
@@ -230,7 +230,6 @@ export default function Home() {
         </motion.div>
       </div>
 
-      {/* Experience Section */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -285,7 +284,6 @@ export default function Home() {
         </motion.ul>
       </motion.div>
 
-      {/* Projects Section */}
       <motion.div
         initial="hidden"
         whileInView="visible"
