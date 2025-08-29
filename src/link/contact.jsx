@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
+import { FaAddressBook , FaMailBulk , FaPhone , FaNetworkWired} from "react-icons/fa";
 
 export default function ContactSection() {
   const fadeUp = {
@@ -96,22 +97,22 @@ export default function ContactSection() {
 
         <div className="flex flex-col md:flex-row justify-around gap-8 bg-gray-800 p-6 rounded-2xl shadow-lg">
           <div className="flex flex-col gap-2">
-            <h3 className="font-semibold text-xl">📍 Address</h3>
+            <h3 className="font-semibold text-xl"><FaAddressBook className="inline text-teal-400"/> Address</h3>
             <p>Yangon, Myanmar</p>
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="font-semibold text-xl">📧 Email</h3>
+            <h3 className="font-semibold text-xl"><FaMailBulk className="inline text-yellow-500"/> Email</h3>
             <p>sannyeinphyo@gmail.com</p>
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="font-semibold text-xl">📞 Phone</h3>
+            <h3 className="font-semibold text-xl"><FaPhone className="inline text-green-500"/> Phone</h3>
             <p>+95 9 788 350 22</p>
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="font-semibold text-xl">🌐 Social</h3>
+            <h3 className="font-semibold text-xl"><FaNetworkWired className="inline text-fuchsia-600"/> Social</h3>
             <div className="flex gap-4">
               <a
-                href="https://linkedin.com/in/sannyeinphyo"
+                href="https://www.linkedin.com/in/san-nyein-phyo-45b309380"
                 className="hover:text-blue-500"
               >
                 LinkedIn

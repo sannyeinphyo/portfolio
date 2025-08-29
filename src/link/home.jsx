@@ -4,6 +4,11 @@ import { FaEnvelope, FaLinkedin, FaGithub, FaTelegram } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
 
 export default function Home() {
+  const fadeDown = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+  };
+
   const fadeUp = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -29,14 +34,14 @@ export default function Home() {
 
   const socials = [
     {
-      icon: <FaEnvelope className="text-amber-200" />,
+      icon: <FaEnvelope className="text-yellow-400" />,
       text: "sannyeinphyo@gmail.com",
       link: "mailto:sannyeinphyo@gmail.com",
     },
     {
       icon: <FaLinkedin className="text-blue-600 " />,
       text: "linkedin.com/in/sannyeinphyo",
-      link: "https://linkedin.com/in/sannyeinphyo",
+      link: "https://www.linkedin.com/in/san-nyein-phyo-45b309380",
     },
     {
       icon: <FaGithub />,
@@ -83,9 +88,15 @@ export default function Home() {
         variants={fadeUp}
         className="relative z-10 text-center space-y-4"
       >
-        <h1 className="text-6xl font-extrabold text-cyan-200">
+        <motion.h1
+          initial={"hidden"}
+          whileInView={"visible"}
+          viewport={{ amount: 0.2 }}
+          variants={fadeDown}
+          className="text-6xl font-extrabold text-cyan-200"
+        >
           Welcome To My Portfolio
-        </h1>
+        </motion.h1>
         <motion.div
           initial={{ opacity: 0, x: 200 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -110,12 +121,14 @@ export default function Home() {
             San Nyein <span className="text-fuchsia-500">Phyo</span>
           </div>
         </motion.div>
-        <p className="text-lg text-gray-300 mt-4">
+        <p className="text-lg text-gray-300 mt-4 font-semibold">
           <Typewriter
+            cursor={true}
+            cursorStyle={"_"}
+            cursorBlinking
             words={[
               " Full-stack web developer building interactive applications with modern technologies.",
             ]}
-            
           >
             F
           </Typewriter>
@@ -145,17 +158,23 @@ export default function Home() {
           transition={{ duration: 1 }}
           viewport={{ amount: 0.2 }}
         />
-        <motion.p
-          initial={{ opacity: 0, x: 200 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ amount: 0.2 }}
-          className="md:w-1/2 text-center md:text-left text-lg"
-        >
-          I build modern web applications that are functional and visually
-          appealing. Explore my skills, projects, experience, and ways to
+
+        <motion.div
+        initial={{opacity:0 , x:200}}
+        whileInView={{opacity:1 , x :0}}
+        transition={{duration:1}}
+        viewport={{amount:0.2}}
+         style={{ whiteSpace: "pre-line", fontWeight: "600" }} className="flex justify-center flex-col">
+          <div>
+            I build modern web applications that are functional and visually
+          appealing.
+            </div>
+          <div>
+
+          Explore my skills, projects, experience, and ways to
           contact me.
-        </motion.p>
+          </div>
+        </motion.div>
       </motion.div>
 
       <div className="grid md:grid-cols-2 gap-8">
@@ -189,7 +208,6 @@ export default function Home() {
           </motion.ul>
         </motion.div>
 
-        {/* Contact */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -256,7 +274,6 @@ export default function Home() {
         </motion.ul>
       </motion.div>
 
-      {/* Education Section */}
       <motion.div
         initial="hidden"
         whileInView="visible"

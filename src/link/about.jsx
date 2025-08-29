@@ -18,7 +18,7 @@ import {
 } from "react-icons/si";
 import { Link } from "react-router-dom";
 
-export default function About() {
+const About = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,7 +35,7 @@ export default function About() {
   };
 
   const skillVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
@@ -115,13 +115,10 @@ export default function About() {
               variants={skillVariants}
               whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
               whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-              drag
-              dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-              dragElastic={0.2}
-              className="bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:bg-gray-700 transition flex flex-col items-center gap-3 cursor-grab active:cursor-grabbing"
+              className="bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:bg-gray-700 transition flex flex-col items-center gap-3"
             >
               {skill.icon}
-              <span className="text-base font-medium text-gray-200">
+              <span className="text-base select-none font-medium text-gray-200">
                 {skill.name}
               </span>
             </motion.div>
@@ -136,7 +133,7 @@ export default function About() {
             Outside of coding, I enjoy exploring{" "}
             <span className="text-pink-400">design trends</span>, playing{" "}
             <span className="text-purple-400">games</span>,{" "}
-            <span className="text-green-400">waching movies </span> and
+            <span className="text-green-400">watching movies </span> and
             <span className="text-yellow-400"> series</span>.
           </p>
         </motion.div>
@@ -152,4 +149,6 @@ export default function About() {
       </motion.div>
     </div>
   );
-}
+};
+
+export default React.memo(About);
