@@ -8,7 +8,7 @@ export default function NavBar() {
       : "px-4 py-2 text-cyan-200 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition";
 
   return (
-    <nav className="flex gap-4 justify-center p-4 sticky">
+    <nav className="flex gap-4 p-4 sticky top-0  overflow-x-auto whitespace-nowrap">
       <NavLink to="/link/home" className={linkClass}>
         Home
       </NavLink>

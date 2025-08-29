@@ -38,7 +38,7 @@ export default function App() {
         }}
       >
         <div className="fixed top-0 left-0 w-full z-50">
-          <div className="backdrop-blur-lg shadow-lg px-6 py-3 flex justify-center bg-black/40">
+          <div className="backdrop-blur-lg shadow-lg px-6 py-3 flex justify-center bg-black/40 overflow-y-auto">
             <NavBar />
           </div>
         </div>
