@@ -1,11 +1,14 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation , Navigate } from "react-router-dom";
+import { useGesture } from "react-use-gesture";
 import Home from "./link/home";
 import Project from "./link/project";
 import Contact from "./link/contact";
 import About from "./link/about";
 import Download from "./link/download";
 import NavBar from "./components/NavBar";
+
+const routeOrder = ["/link/home", "/link/project", "/link/contact", "/link/about", "/link/download"];
 
 function HomePage() {
   return <Home />;
@@ -28,6 +31,27 @@ function DownloadPage() {
 }
 
 export default function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const bind = useGesture({
+    onDrag: ({ swipe: [swipeX] }) => {
+      const currentIndex = routeOrder.indexOf(location.pathname);
+
+      if (swipeX === -1) {
+        const nextIndex = currentIndex + 1;
+        if (nextIndex < routeOrder.length) {
+          navigate(routeOrder[nextIndex]);
+        }
+      } else if (swipeX === 1) {
+        const prevIndex = currentIndex - 1;
+        if (prevIndex >= 0) {
+          navigate(routeOrder[prevIndex]);
+        }
+      }
+    },
+  });
+
   return (
     <div className="min-h-screen relative">
       <div
@@ -38,14 +62,18 @@ export default function App() {
         }}
       >
         <div className="fixed top-0 left-0 w-full z-50">
-          <div className="backdrop-blur-lg shadow-lg px-6 py-3 flex justify-center bg-black/40 overflow-y-auto">
+          <div className="backdrop-blur-lg shadow-lg px-6 py-3 flex justify-center bg-black/40">
             <NavBar />
           </div>
         </div>
 
-        <div className="h-full flex flex-col pt-24 text-cyan-400">
+        <div
+          className="pt-24 overflow-x-hidden h-screen text-cyan-400"
+          {...bind()}
+          style={{ touchAction: "pan-y" }}
+        >
           <Routes>
-            <Route index element={<HomePage />} />
+            <Route path="/" element={<Navigate to="/link/home" replace />} />
             <Route path="/link/home" element={<HomePage />} />
             <Route path="/link/project" element={<ProjectPage />} />
             <Route path="/link/contact" element={<ContactPage />} />

@@ -8,9 +8,9 @@ export default function DownloadSection() {
       file: "/files/SanNyeinPhyo_Resume.pdf",
     },
     {
-      title: "React Certificate",
-      description: "Official React certification.",
-      file: "/files/React_Certificate.pdf",
+      title: "React Node.js Next.js Certificate",
+      description: "Official Next.js, React, Node.js certification.",
+      file: "/portfolio/certificate/nextjs.jpg",
     },
   ];
 

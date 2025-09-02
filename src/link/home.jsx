@@ -18,6 +18,15 @@ export default function Home() {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
   };
+  React.useEffect(() => {
+    document.title = "San Nyein Phyo | Full-stack Developer";
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute(
+        "content",
+        "Portfolio of San Nyein Phyo, Full-stack web developer skilled in React, Node.js, Tailwind CSS and more."
+      );
+  }, []);
 
   const skills = [
     "HTML / CSS",
@@ -160,19 +169,19 @@ export default function Home() {
         />
 
         <motion.div
-        initial={{opacity:0 , x:200}}
-        whileInView={{opacity:1 , x :0}}
-        transition={{duration:1}}
-        viewport={{amount:0.2}}
-         style={{ whiteSpace: "pre-line", fontWeight: "600" }} className="flex justify-center flex-col">
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ amount: 0.2 }}
+          style={{ whiteSpace: "pre-line", fontWeight: "600" }}
+          className="flex justify-center flex-col"
+        >
           <div>
             I build modern web applications that are functional and visually
-          appealing.
-            </div>
+            appealing.
+          </div>
           <div>
-
-          Explore my skills, projects, experience, and ways to
-          contact me.
+            Explore my skills, projects, experience, and ways to contact me.
           </div>
         </motion.div>
       </motion.div>
@@ -329,6 +338,16 @@ export default function Home() {
           ))}
         </motion.ul>
       </motion.div>
+      <div style={{ fontFamily: "Arial, sans-serif" , width:"100%"}} className="flex flex-col items-center">
+        <motion.div
+        initial={{opacity:0 , y:20}}
+        whileInView={{opacity:1 , y:0}}
+        transition={{duration:0.2}}
+        viewport={{amount:0.2}}
+         className="text-sm text-gray-400 mt-4 justify-center text-center">
+          * Swipe left/right to navigate between pages
+        </motion.div>
+      </div>
     </div>
   );
 }
