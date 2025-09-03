@@ -24,6 +24,9 @@ export default function NavBar() {
       <NavLink to="/link/download" className={linkClass}>
         Download
       </NavLink>
+      <NavLink to="/link/side_quest" className={linkClass}>
+        Side Quest
+      </NavLink>
     </nav>
   );
 }

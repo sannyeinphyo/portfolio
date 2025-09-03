@@ -7,8 +7,9 @@ import Contact from "./link/contact";
 import About from "./link/about";
 import Download from "./link/download";
 import NavBar from "./components/NavBar";
+import SideQuest from "./link/side_quest";
 
-const routeOrder = ["/link/home", "/link/project", "/link/contact", "/link/about", "/link/download"];
+const routeOrder = ["/link/home", "/link/project", "/link/contact", "/link/about", "/link/download" ,"/link/side_quest"];
 
 function HomePage() {
   return <Home />;
@@ -28,6 +29,10 @@ function AboutPage() {
 
 function DownloadPage() {
   return <Download />;
+}
+
+function SideQuestPage () {
+  return <SideQuest />;
 }
 
 export default function App() {
@@ -79,6 +84,7 @@ export default function App() {
             <Route path="/link/contact" element={<ContactPage />} />
             <Route path="/link/about" element={<AboutPage />} />
             <Route path="/link/download" element={<DownloadPage />} />
+            <Route path="/link/side_quest" element={<SideQuestPage />} />
           </Routes>
         </div>
       </div>

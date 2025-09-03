@@ -19,25 +19,27 @@ import {
 import { Link } from "react-router-dom";
 
 const About = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15, 
     },
-  };
+  },
+};
 
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
-  const skillVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+
+
+const skillVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 
   const skills = [
     { name: "HTML", icon: <SiHtml5 className="text-orange-500 text-4xl" /> },
@@ -107,14 +109,17 @@ const About = () => {
 
         <motion.div
           variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
         >
           {skills.map((skill, idx) => (
             <motion.div
               key={idx}
-              variants={skillVariants}
-              whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
-              whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+              variants={skillVariants} // only variants
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               className="bg-gray-800 p-6 rounded-2xl shadow-md hover:shadow-xl hover:bg-gray-700 transition flex flex-col items-center gap-3"
             >
               {skill.icon}

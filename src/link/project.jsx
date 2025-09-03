@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// Map tech to colors
 const techColors = {
   React: "bg-cyan-500",
   "Next.js": "bg-gray-700 text-white",

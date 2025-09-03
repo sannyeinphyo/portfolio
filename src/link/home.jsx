@@ -2,6 +2,16 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaLinkedin, FaGithub, FaTelegram } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
+import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiMongodb,
+  SiMysql,
+  SiPrisma,
+  SiFigma,
+  SiCisco,
+} from "react-icons/si";
 
 export default function Home() {
   const fadeDown = {
@@ -15,8 +25,8 @@ export default function Home() {
   };
 
   const listItem = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
   };
   React.useEffect(() => {
     document.title = "San Nyein Phyo | Full-stack Developer";
@@ -29,16 +39,14 @@ export default function Home() {
   }, []);
 
   const skills = [
-    "HTML / CSS",
-    "JavaScript / TypeScript",
-    "Figma",
-    "React & Next.js",
-    "Node.js & Express",
-    "Tailwind CSS & MUI",
-    "MySQL & Prisma",
-    "MongodDB / Restful API",
-    "Bootstrap & Python",
-    "CCNA & MS",
+    { name: "React & Next.js", color: "#61DAFB", icon: <FaReact /> },
+    { name: "Node.js & Express", color: "#339933", icon: <FaNodeJs /> },
+    { name: "Tailwind CSS & MUI", color: "#38B2AC", icon: <SiTailwindcss /> },
+    { name: "MySQL & Prisma", color: "#00758F", icon: <SiMysql /> },
+    { name: "MongoDB / REST API", color: "#47A248", icon: <SiMongodb /> },
+    { name: "Python", color: "#3776AB", icon: <FaPython /> },
+    { name: "Figma", color: "#F24E1E", icon: <SiFigma /> },
+    { name: "CCNA", color: "#2563EB", icon: <SiCisco /> },
   ];
 
   const socials = [
@@ -159,7 +167,7 @@ export default function Home() {
         className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 p-6 rounded-xl bg-gray-800/70 shadow-lg hover:shadow-2xl transition-shadow duration-500"
       >
         <motion.img
-          src="/portfolio/profile.jpg"
+          src="/portfolio/profile_.jpg"
           alt="my-photo"
           className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover"
           initial={{ opacity: 0, x: -200 }}
@@ -187,35 +195,43 @@ export default function Home() {
       </motion.div>
 
       <div className="grid md:grid-cols-2 gap-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ amount: 0.2 }}
-          variants={fadeUp}
-          className="bg-gray-800/70 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-500"
-        >
-          <h2 className="text-2xl font-bold text-cyan-400 mb-4">Skills</h2>
-          <motion.ul
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.2 }}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.2 } },
-            }}
-            className="list-disc list-inside space-y-1 text-lg"
-          >
-            {skills.map((item, i) => (
-              <motion.li
-                key={i}
-                variants={listItem}
-                className="hover:text-cyan-300 transition-colors duration-300"
-              >
-                {item}
-              </motion.li>
-            ))}
-          </motion.ul>
-        </motion.div>
+   <motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ amount: 0.2 }}
+  variants={fadeUp}
+  className="bg-gray-800/70 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-500"
+>
+  <h2 className="text-2xl font-bold text-cyan-400 mb-4">Skills</h2>
+
+  <motion.ul
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ amount: 0.2 }}
+    variants={{
+      hidden: {},
+      visible: { transition: { staggerChildren: 0.15 } },
+    }}
+    className="space-y-3"
+  >
+    {skills.map((item, i) => (
+      <motion.li
+        key={i}
+        variants={{
+          hidden: { opacity: 0, x: -20 },
+          visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+        }}
+        className="flex items-center gap-3 p-3 bg-gray-900/50 rounded-lg shadow-md hover:bg-gray-900/80 hover:scale-105 transition-all duration-300"
+      >
+        <span className="text-2xl" style={{ color: item.color }}>
+          {item.icon}
+        </span>
+        <span className="font-semibold text-white">{item.name}</span>
+      </motion.li>
+    ))}
+  </motion.ul>
+</motion.div>
+
 
         <motion.div
           initial="hidden"
@@ -255,7 +271,6 @@ export default function Home() {
           </motion.ul>
         </motion.div>
       </div>
-
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -282,7 +297,6 @@ export default function Home() {
           ))}
         </motion.ul>
       </motion.div>
-
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -338,13 +352,17 @@ export default function Home() {
           ))}
         </motion.ul>
       </motion.div>
-      <div style={{ fontFamily: "Arial, sans-serif" , width:"100%"}} className="flex flex-col items-center">
+      <div
+        style={{ fontFamily: "Arial, sans-serif", width: "100%" }}
+        className="flex flex-col items-center"
+      >
         <motion.div
-        initial={{opacity:0 , y:20}}
-        whileInView={{opacity:1 , y:0}}
-        transition={{duration:0.2}}
-        viewport={{amount:0.2}}
-         className="text-sm text-gray-400 mt-4 justify-center text-center">
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
+          viewport={{ amount: 0.2 }}
+          className="text-sm text-gray-400 mt-4 justify-center text-center"
+        >
           * Swipe left/right to navigate between pages
         </motion.div>
       </div>
