@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FaEnvelope, FaLinkedin, FaGithub, FaTelegram } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
 import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
+
 import {
   SiNextdotjs,
   SiTailwindcss,
@@ -151,7 +152,7 @@ export default function Home() {
           </Typewriter>
         </p>
         <a
-          href="/resume.pdf"
+          href="/portfolio/resume/snp_resume.pdf"
           target="_blank"
           className="inline-block mt-4 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 rounded-lg font-semibold text-black transition-colors duration-300"
         >
@@ -167,7 +168,7 @@ export default function Home() {
         className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 p-6 rounded-xl bg-gray-800/70 shadow-lg hover:shadow-2xl transition-shadow duration-500"
       >
         <motion.img
-          src="/portfolio/profile_.jpg"
+          src="/portfolio/profile.jpg"
           alt="my-photo"
           className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover"
           initial={{ opacity: 0, x: -200 }}
@@ -195,43 +196,42 @@ export default function Home() {
       </motion.div>
 
       <div className="grid md:grid-cols-2 gap-8">
-   <motion.div
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ amount: 0.2 }}
-  variants={fadeUp}
-  className="bg-gray-800/70 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-500"
->
-  <h2 className="text-2xl font-bold text-cyan-400 mb-4">Skills</h2>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.2 }}
+          variants={fadeUp}
+          className="bg-gray-800/70 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-500"
+        >
+          <h2 className="text-2xl font-bold text-cyan-400 mb-4">Skills</h2>
 
-  <motion.ul
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ amount: 0.2 }}
-    variants={{
-      hidden: {},
-      visible: { transition: { staggerChildren: 0.15 } },
-    }}
-    className="space-y-3"
-  >
-    {skills.map((item, i) => (
-      <motion.li
-        key={i}
-        variants={{
-          hidden: { opacity: 0, x: -20 },
-          visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
-        }}
-        className="flex items-center gap-3 p-3 bg-gray-900/50 rounded-lg shadow-md hover:bg-gray-900/80 hover:scale-105 transition-all duration-300"
-      >
-        <span className="text-2xl" style={{ color: item.color }}>
-          {item.icon}
-        </span>
-        <span className="font-semibold text-white">{item.name}</span>
-      </motion.li>
-    ))}
-  </motion.ul>
-</motion.div>
-
+          <motion.ul
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.2 }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.15 } },
+            }}
+            className="space-y-3"
+          >
+            {skills.map((item, i) => (
+              <motion.li
+                key={i}
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+                }}
+                className="flex items-center gap-3 p-3 bg-gray-900/50 rounded-lg shadow-md hover:bg-gray-900/80 hover:scale-105 transition-all duration-300"
+              >
+                <span className="text-2xl" style={{ color: item.color }}>
+                  {item.icon}
+                </span>
+                <span className="font-semibold text-white">{item.name}</span>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.div>
 
         <motion.div
           initial="hidden"
