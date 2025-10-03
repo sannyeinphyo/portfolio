@@ -10,17 +10,28 @@ const techColors = {
   "Framer Motion": "bg-purple-500",
   Vite: "bg-amber-300",
   Prisma: " bg-fuchsia-600",
-  "MUI":"bg-blue-700",
-  "Typewriter":"bg-cyan-400",
-  "OCR":"bg-amber-400"
+  MUI: "bg-blue-700",
+  Typewriter: "bg-cyan-400",
+  OCR: "bg-amber-400",
 };
 
 const projects = [
   {
     title: "Student Internship Portal",
     description:
-      "A full-stack web app for students to find internships ,can schedule interview/accept or rejecct from the company , and also include Student Id Scanning ",
-    tech: ["React", "Next.js", "Tailwind CSS", "Node.js", "MySQL", "Prisma","MUI", "Framer Motion" , "Typewriter" , "OCR",],
+      "A full-stack web app for students to find internships ,can schedule interview/accept or reject from the company , and also include Student Id Scanning ",
+    tech: [
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Node.js",
+      "MySQL",
+      "Prisma",
+      "MUI",
+      "Framer Motion",
+      "Typewriter",
+      "OCR",
+    ],
     github: "https://github.com/sannyeinphyo/internlink",
     live: "https://sannyeinphyo.github.io/internlink",
     image: "/portfolio/images/internlink.png",
@@ -34,14 +45,14 @@ const projects = [
     live: "https://sannyeinphyo.github.io/portfolio",
     image: "/portfolio/images/portfolio.png",
   },
-  {
-    title: "Task Manager App",
-    description: "A simple task manager with drag-and-drop functionality.",
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/sannyeinphyo/task-manager",
-    live: "",
-    image: "/images/task-manager.png",
-  },
+  // {
+  //   title: "Task Manager App",
+  //   description: "A simple task manager with drag-and-drop functionality.",
+  //   tech: ["React", "Tailwind CSS", "Framer Motion"],
+  //   github: "https://github.com/sannyeinphyo/task-manager",
+  //   live: "",
+  //   image: "/images/task-manager.png",
+  // },
 ];
 
 export default function Project() {
@@ -66,7 +77,7 @@ export default function Project() {
             whileTap={{ scale: 0.98 }}
             whileHover={{
               scale: 1.05,
-              transition: { duration: 0.1, delay: 0 }, 
+              transition: { duration: 0.1, delay: 0 },
             }}
           >
             {project.image && (

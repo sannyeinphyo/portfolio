@@ -71,6 +71,9 @@ export default function Home() {
       text: "t.me/sannyeinphyo",
       link: "https://t.me/sannyeinphyo",
     },
+    {
+      icon : <img src = "/portfolio/resume/sannyeinphyo_jobnet.png" style={{width:200}} />,
+    }
   ];
 
   const projects = [

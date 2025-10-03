@@ -5,7 +5,7 @@ export default function DownloadSection() {
     {
       title: "Resume",
       description: "Download my latest resume (PDF).",
-      file: "/files/SanNyeinPhyo_Resume.pdf",
+      file: "/portfolio/resume/snp_resume.pdf",
     },
     {
       title: "React Node.js Next.js Certificate",
