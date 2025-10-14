@@ -13,7 +13,7 @@ export default function NavBar() {
         Home
       </NavLink>
       <NavLink to="/link/project" className={linkClass}>
-        Project
+        Projects
       </NavLink>
       <NavLink to="/link/contact" className={linkClass}>
         Contact

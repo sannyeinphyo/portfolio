@@ -51,7 +51,7 @@ const projects = [
     tech: ["Next.js", "Tailwind CSS", ,"Prisma ORM Cloud Storage", "Framer Motion"],
     github: "https://github.com/sannyeinphyo/guitar",
     live: "https://guitar-azure.vercel.app/",
-    image: "/portfolio/images/chords_libary",
+    image: "/portfolio/images/chords_libary.png",
   },
 ];
 
