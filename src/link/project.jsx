@@ -51,7 +51,7 @@ const projects = [
     tech: ["Next.js", "Tailwind CSS", ,"Prisma ORM Cloud Storage", "Framer Motion"],
     github: "https://github.com/sannyeinphyo/guitar",
     live: "https://guitar-azure.vercel.app/",
-    image: "/portfolio/images/chords_libary",
+    image: "/portfolio/images/chords_libary.png",
   },
 ];
 
@@ -127,7 +127,7 @@ export default function Project() {
                     rel="noopener noreferrer"
                     className="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 transition"
                   >
-                    Live Demo
+                    Live
                   </a>
                 )}
               </div>
