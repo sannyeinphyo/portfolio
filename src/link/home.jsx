@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaLinkedin, FaGithub, FaTelegram } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
-import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaPython , FaHtml5 } from "react-icons/fa";
 
 import {
   SiNextdotjs,
@@ -12,6 +12,7 @@ import {
   SiPrisma,
   SiFigma,
   SiCisco,
+  SiTypescript
 } from "react-icons/si";
 
 export default function Home() {
@@ -40,6 +41,8 @@ export default function Home() {
   }, []);
 
   const skills = [
+    { name: "HTML & CSS", color: "#F24E1E", icon: <FaHtml5 /> },
+    { name: "JavaScript & TypeScript", color: "#61DAFB", icon: <SiTypescript /> },
     { name: "React & Next.js", color: "#61DAFB", icon: <FaReact /> },
     { name: "Node.js & Express", color: "#339933", icon: <FaNodeJs /> },
     { name: "Tailwind CSS & MUI", color: "#38B2AC", icon: <SiTailwindcss /> },
@@ -72,14 +75,19 @@ export default function Home() {
       link: "https://t.me/sannyeinphyo",
     },
     {
-      icon : <img src = "/portfolio/resume/sannyeinphyo_jobnet.png" style={{width:200}} />,
-    }
+      icon: (
+        <img
+          src="/portfolio/resume/sannyeinphyo_jobnet.png"
+          style={{ width: 200 }}
+        />
+      ),
+    },
   ];
 
   const projects = [
     "InternLink: A full-stack internship portal built with Next.js, Node.js, and MySQL.",
     "Portfolio Website: My personal portfolio using React, Tailwind, and Framer Motion animations.",
-    "Job Board App: Internship listing app with filtering and real-time notifications.",
+    "Chord Libary: This project base for uploading guitar chords to server from everyone and search chords to play.",
   ];
 
   const experience = [
