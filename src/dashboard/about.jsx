@@ -21,27 +21,27 @@ import {
 import { Link } from "react-router-dom";
 
 const About = () => {
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
     },
-  },
-};
+  };
 
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
-
-
-const skillVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
+  const skillVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3 },
+    },
+  };
 
   const skills = [
     { name: "HTML", icon: <SiHtml5 className="text-orange-500 text-4xl" /> },
@@ -53,7 +53,10 @@ const skillVariants = {
     { name: "Figma", icon: <SiFigma className=" text-purple-500 text-4xl" /> },
     { name: "React", icon: <FaReact className="text-sky-400 text-4xl" /> },
     { name: "Angular", icon: <SiAngular className="text-red-500 text-4xl" /> },
-    { name: "Next.js", icon: <SiNextdotjs className="text-slate-900 dark:text-white text-4xl" /> },
+    {
+      name: "Next.js",
+      icon: <SiNextdotjs className="text-slate-900 dark:text-white text-4xl" />,
+    },
     { name: "Node.js", icon: <FaNodeJs className="text-green-500 text-4xl" /> },
     { name: "Git", icon: <FaGitAlt className="text-orange-500 text-4xl" /> },
     { name: "API", icon: <SiPostman className="text-orange-500 text-4xl" /> },
@@ -61,7 +64,10 @@ const skillVariants = {
       name: "Mongodb",
       icon: <SiMongodb className="text-green-500 text-4xl" />,
     },
-     { name: "Postgres", icon: <SiPostgresql className="text-blue-500 text-4xl" /> },
+    {
+      name: "Postgres",
+      icon: <SiPostgresql className="text-blue-500 text-4xl" />,
+    },
     { name: "MySQL", icon: <SiMysql className="text-yellow-400 text-4xl" /> },
     { name: "Prisma", icon: <SiPrisma className="text-cyan-300 text-4xl" /> },
     {
@@ -82,8 +88,8 @@ const skillVariants = {
     },
   ];
 
-return (
-    <div className="min-h-screen bg-slate-50 dark:bg-gray-900 text-slate-900 dark:text-white flex items-center justify-center p-8 transition-colors duration-500">
+  return (
+    <div className="min-h-screen rounded-2xl bg-slate-50 dark:bg-gray-900 text-slate-900 dark:text-white flex items-center justify-center p-8 transition-colors duration-500">
       <motion.div
         className="max-w-4xl w-full space-y-12"
         variants={containerVariants}
@@ -102,12 +108,19 @@ return (
           className="text-lg md:text-xl text-slate-600 dark:text-gray-300 text-center leading-relaxed"
         >
           Hi, I'm{" "}
-          <span className="text-indigo-600 dark:text-blue-400 font-semibold">San Nyein Phyo</span> —
-          a passionate web developer who loves creating{" "}
-          <span className="text-indigo-500 dark:text-blue-300">modern, user-friendly</span>{" "}
+          <span className="text-indigo-600 dark:text-blue-400 font-semibold">
+            San Nyein Phyo
+          </span>{" "}
+          — a passionate web developer who loves creating{" "}
+          <span className="text-indigo-500 dark:text-blue-300">
+            modern, user-friendly
+          </span>{" "}
           applications. I specialize in{" "}
-          <span className="text-emerald-600 dark:text-green-300">React, Next.js, Node.js,</span> and{" "}
-          <span className="text-amber-600 dark:text-yellow-300">MySQL</span>.
+          <span className="text-emerald-600 dark:text-green-300">
+            React, Next.js, Node.js,
+          </span>{" "}
+          and <span className="text-amber-600 dark:text-yellow-300">MySQL</span>
+          .
         </motion.p>
 
         <motion.div
@@ -123,13 +136,9 @@ return (
               variants={skillVariants}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              /* Skill cards now have light mode borders and shadows */
               className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-none hover:shadow-xl hover:bg-slate-50 dark:hover:bg-gray-700 transition flex flex-col items-center gap-3"
             >
-              {/* Dynamic Icon Colors */}
-              <div className="filter drop-shadow-sm">
-                {skill.icon}
-              </div>
+              <div className="filter drop-shadow-sm">{skill.icon}</div>
               <span className="text-base select-none font-medium text-slate-700 dark:text-gray-200">
                 {skill.name}
               </span>
@@ -143,10 +152,17 @@ return (
         >
           <p>
             Outside of coding, I enjoy exploring{" "}
-            <span className="text-pink-600 dark:text-pink-400">design trends</span>, playing{" "}
+            <span className="text-pink-600 dark:text-pink-400">
+              design trends
+            </span>
+            , playing{" "}
             <span className="text-purple-600 dark:text-purple-400">games</span>,{" "}
-            <span className="text-emerald-600 dark:text-green-400">watching movies </span> and
-            <span className="text-amber-600 dark:text-yellow-400"> series</span>.
+            <span className="text-emerald-600 dark:text-green-400">
+              watching movies{" "}
+            </span>{" "}
+            and
+            <span className="text-amber-600 dark:text-yellow-400"> series</span>
+            .
           </p>
         </motion.div>
 

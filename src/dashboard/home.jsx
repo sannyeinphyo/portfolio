@@ -77,7 +77,7 @@ export default function Home() {
       link: "https://www.linkedin.com/in/san-nyein-phyo-45b309380",
     },
     {
-      icon: <FaGithub />,
+      icon: <FaGithub className="dark:text-white text-gray-900 " />,
       text: "github.com/sannyeinphyo",
       link: "https://github.com/sannyeinphyo",
     },
@@ -144,13 +144,13 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen relative p-6 bg-dark-900 text-white flex flex-col gap-12">
+    <div className="min-h-screen relative bg-dark-900 text-white flex flex-col gap-12">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeUp}
-        className="relative z-10 min-h-[70vh] flex flex-col items-center justify-center text-center space-y-6 pt-20"
+        className="relative z-10 min-h-[70vh] flex flex-col items-center justify-center text-center space-y-6 "
       >
         <div className="space-y-2">
           <motion.h1
@@ -199,19 +199,18 @@ export default function Home() {
           </a>
 
           <a
-            href="mailto:sannyeinphyo@gmail.comt"
+            href="mailto:sannyeinphyo@gmail.com"
             className="px-8 py-4 bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 rounded-2xl font-bold hover:bg-slate-50 hover:scale-105 dark:hover:bg-slate-800 transition-all duration-300"
           >
             Contact Me
           </a>
         </motion.div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/10 dark:bg-cyan-500/5 rounded-full blur-[120px] -z-10"></div>
       </motion.div>
 
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         variants={fadeUp}
         className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 p-10
              rounded-[2rem] border border-slate-200 dark:border-slate-800
@@ -224,7 +223,7 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="relative group"
         >
-          <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+          <div className="absolute -inset-1 bg-blue-600 rounded-full blur-sm opacity-50"></div>
           <motion.img
             src="/portfolio/oggy.png"
             alt="my-photo"
@@ -269,34 +268,28 @@ export default function Home() {
         </motion.div>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          className="p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md transition-all duration-500"
+          viewport={{ once: false, amount: 0.2 }}
+          className="p-5 md:p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md transition-all duration-500"
         >
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
             <span className="w-1.5 h-6 bg-cyan-500 rounded-full"></span>
             Technical Stack
           </h2>
 
           <motion.div
-            initial="hidden"
-            whileInView="visible"
             variants={{
               visible: { transition: { staggerChildren: 0.05 } },
             }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+            className="grid grid-cols-1 md:grid-cols-2 gap-3"
           >
             {skills.map((item, i) => (
               <motion.div
                 key={i}
-                variants={{
-                  hidden: { opacity: 0, y: 10 },
-                  visible: { opacity: 1, y: 0 },
-                }}
+                variants={listItem}
                 className="flex items-center gap-3 p-3 rounded-lg border border-slate-100 dark:border-slate-800/50 bg-slate-50/50 dark:bg-slate-800/20 hover:scale-105 hover:border-cyan-500/50 transition-all duration-300"
               >
                 <span className="text-xl" style={{ color: item.color }}>
@@ -314,10 +307,9 @@ export default function Home() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
           className="p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md transition-all duration-500"
         >
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
             <span className="w-1.5 h-6 bg-blue-500 rounded-full"></span>
             Get In Touch
           </h2>
@@ -338,7 +330,7 @@ export default function Home() {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center gap-4 p-4 rounded-lg border border-transparent hover:border-blue-500/30 hover:bg-blue-500/5 transition-all duration-300"
+                      className="group flex items-center text-sm md:text-base gap-4 p-4 rounded-lg border border-transparent hover:border-blue-500/30 hover:bg-blue-500/5 transition-all duration-300"
                     >
                       <span className="text-2xl transition-transform group-hover:scale-110 duration-300">
                         {item.icon}
@@ -365,7 +357,7 @@ export default function Home() {
         variants={fadeUp}
         className="p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md transition-all duration-500"
       >
-        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-10 flex items-center gap-3">
+        <h2 className="text-xl md:text-3xl font-bold text-slate-900 dark:text-white mb-10 flex items-center gap-3">
           <span className="w-1.5 h-8 bg-blue-600 rounded-full"></span>
           Professional Experience
         </h2>
@@ -388,7 +380,7 @@ export default function Home() {
 
               <div className="flex flex-col gap-2">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                  <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">
                     {item.role}
                   </h3>
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 w-fit">
@@ -396,7 +388,7 @@ export default function Home() {
                   </span>
                 </div>
 
-                <div className="text-blue-600 dark:text-blue-400 font-semibold text-lg flex items-center gap-2">
+                <div className="text-blue-600 dark:text-blue-400 font-semibold text-md md:text-lg flex items-center gap-2">
                   <span>{item.company}</span>
                 </div>
 
@@ -431,7 +423,7 @@ export default function Home() {
         variants={fadeUp}
         className="p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md shadow-sm transition-all duration-500"
       >
-        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+        <h2 className=" text-xl md:text-3xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
           <span className="w-1.5 h-8 bg-cyan-500 rounded-full"></span>
           Education
         </h2>
@@ -460,10 +452,10 @@ export default function Home() {
                      hover:shadow-xl hover:shadow-cyan-500/5 transition-all duration-300"
               >
                 <div className="flex flex-col gap-1">
-                  <span className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                  <span className="text-md md:text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                     {item.degree}
                   </span>
-                  <span className="text-slate-600 dark:text-slate-400 font-medium">
+                  <span className="text-slate-600 dark:text-slate-400 text-sm md:font-medium">
                     {item.institution}
                   </span>
                 </div>
@@ -499,7 +491,7 @@ export default function Home() {
         variants={fadeUp}
         className="p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/30 dark:bg-slate-900/20 backdrop-blur-xl transition-all duration-500"
       >
-        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-10 flex items-center gap-3">
+        <h2 className="text-xl md:text-3xl font-bold text-slate-900 dark:text-white mb-10 flex items-center gap-3">
           <span className="w-1.5 h-8 bg-indigo-500 rounded-full"></span>
           Featured Projects
         </h2>
@@ -532,11 +524,13 @@ export default function Home() {
                 </div>
                 <div className="flex gap-3">
                   <button className="text-slate-400 hover:text-indigo-500 transition-colors">
-                    <FaGithub size={18} />
+                    <a href={project.github}>
+                      <FaGithub size={18} />
+                    </a>
                   </button>
-                  <button className="text-slate-400 hover:text-indigo-500 transition-colors">
+                  {/* <button className="text-slate-400 hover:text-indigo-500 transition-colors">
                     <FaExternalLinkAlt size={16} />
-                  </button>
+                  </button> */}
                 </div>
               </div>
 
