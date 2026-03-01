@@ -12,10 +12,10 @@ export const dashboardRoute = [
     children: [
       { index: true, element: <Navigate to = "home" replace/> },
       { path: "home", element: <Home /> },
-      { path: "project", element: <Project /> },
+      // { path: "project", element: <Project /> },
       { path: "about", element: <About /> },
       { path: "contact", element: <ContactSection /> },
-      { path: "download", element: <DownloadSection /> },
+      // { path: "download", element: <DownloadSection /> },
       { path: "side-quest", element: <SideQuest /> },
     ],
   },

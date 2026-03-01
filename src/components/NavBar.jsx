@@ -24,15 +24,15 @@ export default function NavBar() {
   const toggleTheme = () => setIsDark(!isDark);
 
   const linkClass = ({ isActive }) =>
-    `px-2 sm:px-4 py-2 text-[11px] sm:text-sm font-medium rounded-xl transition-all duration-300 ${
+    `px-2 sm:px-4 py-2 text-[11px] sm:text-sm font-medium rounded-xl user-select-none transition-all duration-300 ${
       isActive
-        ? "text-indigo-600 dark:text-cyan-400 bg-indigo-50 dark:bg-cyan-500/10"
-        : "text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-white/5"
+        ? "text-indigo-600 dark:text-cyan-400 bg-indigo-50 dark:bg-cyan-500/10 user-select-none"
+        : "text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-white/5 user-select-none"
     }`;
 
   return (
-    <div className="relative top-0 sm:top-6 left-0 w-full z-50 flex justify-center p-2 sm:p-4 py-3 sm:py-0">
-      <nav className="flex items-center gap-1 sm:gap-2 p-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/50 dark:border-white/10 shadow-lg dark:shadow-none rounded-2xl w-full max-w-fit justify-center">
+    <div className="fixed top-0 sm:top-6 left-0 w-full z-50 flex justify-center p-2 sm:p-4 py-3 sm:py-0 ">
+      <nav className="flex user-select-none items-center gap-1 sm:gap-2 p-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/50 dark:border-white/10 shadow-lg dark:shadow-none rounded-2xl w-full max-w-fit justify-center">
         <NavLink to="/home" className={linkClass}>
           Home
         </NavLink>

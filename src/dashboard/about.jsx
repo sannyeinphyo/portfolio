@@ -89,7 +89,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen rounded-2xl bg-slate-50 dark:bg-gray-900 text-slate-900 dark:text-white flex items-center justify-center p-8 transition-colors duration-500">
+    <div className="min-h-screen mt-12 rounded-2xl bg-slate-50 dark:bg-gray-900 text-slate-900 dark:text-white flex items-center justify-center p-8 transition-colors duration-500">
       <motion.div
         className="max-w-4xl w-full space-y-12"
         variants={containerVariants}

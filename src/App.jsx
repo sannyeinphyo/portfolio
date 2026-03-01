@@ -6,13 +6,12 @@ import NavBar from "./components/NavBar";
 
 const routeOrder = [
   "/home",
-  "/project",
+  // "/project",
   "/contact",
   "/about",
-  "/download",
-  "/side_quest",
+  // "/download",
+  "/side-quest",
 ];
-
 export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,10 +28,10 @@ export default function App() {
   });
 
   return (
-    <div className="min-h-screen relative">
+    <div className="h-screen flex flex-col overflow-hidden">
       <NavBar />
       <div
-        className="py-12 px-3 overflow-x-hidden flex-1 text-cyan-400"
+        className="flex-1 py-12 px-3 overflow-y-auto overflow-x-hidden text-cyan-400"
         {...bind()}
         style={{ touchAction: "pan-y" }}
       >
