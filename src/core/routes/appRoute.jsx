@@ -1,5 +1,6 @@
 import { useRoutes } from 'react-router-dom';
 import { dashboardRoute } from '../../dashboard';
+import {NotFound} from '../../components/notfound'
 
 export const AppRouter = () => {
   const routes = useRoutes([
@@ -8,7 +9,7 @@ export const AppRouter = () => {
         ...dashboardRoute,
       ]
     },
-    { path: '*', element: <div>Page Not Found</div> }
+    { path: '*', element:<NotFound/> }
   ]);
 
   return routes;

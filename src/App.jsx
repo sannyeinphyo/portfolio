@@ -32,7 +32,7 @@ export default function App() {
     <div className="min-h-screen relative">
       <NavBar />
       <div
-        className="py-12 px-3 overflow-x-hidden h-screen text-cyan-400"
+        className="py-12 px-3 overflow-x-hidden flex-1 text-cyan-400"
         {...bind()}
         style={{ touchAction: "pan-y" }}
       >
