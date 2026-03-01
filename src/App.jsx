@@ -19,6 +19,9 @@ export default function App() {
   const bind = useGesture({
     onDrag: ({ swipe: [swipeX] }) => {
       const currentIndex = routeOrder.indexOf(location.pathname);
+      // Index Check
+      if (currentIndex === -1) return;
+
       if (swipeX === -1 && currentIndex < routeOrder.length - 1) {
         navigate(routeOrder[currentIndex + 1]);
       } else if (swipeX === 1 && currentIndex > 0) {
@@ -28,10 +31,11 @@ export default function App() {
   });
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden">
+    <div className="h-screen flex flex-col-reverse md:flex-col overflow-hidden bg-slate-50 dark:bg-gray-900">
       <NavBar />
       <div
-        className="flex-1 py-12 px-3 overflow-y-auto overflow-x-hidden text-cyan-400"
+        // Changed py-12 to pt-8 pb-20 on mobile to clear the bottom NavBar
+        className="flex-1 pt-8 pb-20 md:py-12 px-3 overflow-y-auto overflow-x-hidden text-cyan-400"
         {...bind()}
         style={{ touchAction: "pan-y" }}
       >

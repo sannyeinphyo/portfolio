@@ -31,7 +31,7 @@ export default function NavBar() {
     }`;
 
   return (
-    <div className="fixed top-0 sm:top-6 left-0 w-full z-50 flex justify-center p-2 sm:p-4 py-3 sm:py-0 ">
+    <div className="fixed bottom-4 md:bottom-auto md:top-0 left-0 w-full z-50 flex justify-center p-2 sm:p-4">
       <nav className="flex user-select-none items-center gap-1 sm:gap-2 p-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/50 dark:border-white/10 shadow-lg dark:shadow-none rounded-2xl w-full max-w-fit justify-center">
         <NavLink to="/home" className={linkClass}>
           Home

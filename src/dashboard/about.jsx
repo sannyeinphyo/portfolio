@@ -168,7 +168,7 @@ const About = () => {
 
         <motion.div variants={fadeUp} className="flex justify-center">
           <Link
-            to="/link/contact"
+            to="/contact"
             className="px-6 py-3 bg-indigo-600 dark:bg-blue-500 text-white rounded-xl font-semibold shadow-lg hover:bg-indigo-700 dark:hover:bg-blue-600 transition-all active:scale-95"
           >
             Let's Connect
