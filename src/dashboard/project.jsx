@@ -47,8 +47,15 @@ const projects = [
   },
   {
     title: "Guitar Chord Libary",
-    description: "A simple chord libary and knowledge sharing and hosted in vercel.",
-    tech: ["Next.js", "Tailwind CSS", ,"Prisma ORM Cloud Storage", "Framer Motion"],
+    description:
+      "A simple chord libary and knowledge sharing and hosted in vercel.",
+    tech: [
+      "Next.js",
+      "Tailwind CSS",
+      ,
+      "Prisma ORM Cloud Storage",
+      "Framer Motion",
+    ],
     github: "https://github.com/sannyeinphyo/guitar",
     live: "https://guitar-azure.vercel.app/",
     image: "/portfolio/images/chords_libary.png",

@@ -5,8 +5,10 @@ import "./index.css";
 import App from "./App.jsx";
 import { Toaster } from "react-hot-toast";
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter basename="/portfolio">
+  <StrictMode>
+    <BrowserRouter basename="/portfolio">
+      <Toaster position="top-center" />
       <App />
-          <Toaster position="top-center" /> 
-  </BrowserRouter>
+    </BrowserRouter>
+  </StrictMode>,
 );
