@@ -168,6 +168,7 @@ export default function Home() {
         style={{ y: smoothY1 }}
         className="absolute -right-20 top-1/2 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none z-0"
       />
+      <div className="flex flex-col gap-12 px-4 py-4">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -599,6 +600,7 @@ export default function Home() {
           * Swipe left/right to navigate between pages
         </motion.div>
       </div> */}
+      </div>
     </div>
   );
 }
