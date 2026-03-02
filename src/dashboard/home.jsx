@@ -1,14 +1,16 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import {
   FaEnvelope,
   FaLinkedin,
   FaGithub,
   FaTelegram,
   FaAngular,
+  FaReact,
+  FaNodeJs,
+  FaPython,
+  FaHtml5,
 } from "react-icons/fa";
-import { Typewriter } from "react-simple-typewriter";
-import { FaReact, FaNodeJs, FaPython, FaHtml5 } from "react-icons/fa";
 
 import {
   SiTailwindcss,
@@ -21,12 +23,18 @@ import {
   SiJavascript,
   SiNestjs,
 } from "react-icons/si";
+import { Typewriter } from "react-simple-typewriter";
+import GlowingCursor from "../components/GlowingCursor";
 
 export default function Home() {
-  const fadeDown = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
-  };
+  const { scrollY } = useScroll();
+
+  const y1 = useTransform(scrollY, [0, 600], [0, 400]);
+  const y2 = useTransform(scrollY, [0, 600], [0, 300]);
+  const scale = useTransform(scrollY, [0, 300, 600], [1, 1.4, 1]);
+  const smoothY1 = useSpring(y1, { stiffness: 50, damping: 20 });
+  const smoothY2 = useSpring(y2, { stiffness: 50, damping: 20 });
+  const smoothScale = useSpring(scale, { stiffness: 50, damping: 20 });
 
   const fadeUp = {
     hidden: { opacity: 0, y: 50 },
@@ -37,6 +45,7 @@ export default function Home() {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   };
+
   React.useEffect(() => {
     document.title = "San Nyein Phyo | Full-stack Developer";
     document
@@ -55,13 +64,13 @@ export default function Home() {
       icon: <SiJavascript />,
     },
     { name: "React & Next.js", color: "#61DAFB", icon: <FaReact /> },
-    { name: "Angular", color: "#FF0000 ", icon: <FaAngular /> },
+    { name: "Angular", color: "#FF0000", icon: <FaAngular /> },
     { name: "Node.js & Express", color: "#339933", icon: <FaNodeJs /> },
     { name: "Nest.js", color: "#e41c77", icon: <SiNestjs /> },
     { name: "Tailwind CSS & MUI", color: "#38B2AC", icon: <SiTailwindcss /> },
-    { name: "Boorstrap", color: "#6f42c1", icon: <SiBootstrap /> },
+    { name: "Bootstrap", color: "#6f42c1", icon: <SiBootstrap /> },
     { name: "MySQL & Prisma", color: "#00758F", icon: <SiMysql /> },
-    { name: "Postgres & Sequlize", color: "#00758F", icon: <SiPostgresql /> },
+    { name: "Postgres & Sequelize", color: "#00758F", icon: <SiPostgresql /> },
     { name: "MongoDB / REST API", color: "#47A248", icon: <SiMongodb /> },
     { name: "Python", color: "#FFD43B", icon: <FaPython /> },
     { name: "Figma", color: "#F24E1E", icon: <SiFigma /> },
@@ -145,9 +154,22 @@ export default function Home() {
       link: "https://ucsh.edu.mm/",
     },
   ];
-
   return (
-    <div className="min-h-screen relative bg-dark-900 text-white flex flex-col gap-12">
+    
+    <div className="relative bg-dark-900 text-white flex flex-col gap-12 overflow-hidden w-full">
+
+      <motion.div
+        style={{ y: smoothY1 }}
+        className="absolute top-1 -left-20 w-[500px] h-[500px]  dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none z-0"
+      />
+      <motion.div
+        style={{ y: smoothY2, scale: smoothScale }}
+        className="absolute left-1/2 top-1/4 -translate-x-1/2 w-[500px] h-[500px] dark:bg-blue-600/10 rounded-full blur-[120px] pointer-events-none z-0"
+      />
+      <motion.div
+        style={{ y: smoothY1 }}
+        className="absolute -right-20 top-1/2 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none z-0"
+      />
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -570,7 +592,7 @@ export default function Home() {
           ))}
         </div>
       </motion.div>
-      <div
+      {/* <div
         style={{ fontFamily: "Arial, sans-serif", width: "100%" }}
         className="flex flex-col items-center"
       >
@@ -583,7 +605,7 @@ export default function Home() {
         >
           * Swipe left/right to navigate between pages
         </motion.div>
-      </div>
+      </div> */}
     </div>
   );
 }

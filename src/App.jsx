@@ -31,7 +31,7 @@ export default function App() {
   });
 
   return (
-    <div className="h-screen flex flex-col-reverse md:flex-col overflow-hidden bg-slate-50 dark:bg-gray-900">
+    <div className=" flex flex-col-reverse md:flex-col overflow-hidden bg-slate-50 dark:bg-gray-900">
       <NavBar />
       <div
         // Changed py-12 to pt-8 pb-20 on mobile to clear the bottom NavBar
