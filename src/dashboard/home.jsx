@@ -24,7 +24,6 @@ import {
   SiNestjs,
 } from "react-icons/si";
 import { Typewriter } from "react-simple-typewriter";
-import GlowingCursor from "../components/GlowingCursor";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -155,7 +154,6 @@ export default function Home() {
     },
   ];
   return (
-    
     <div className="relative bg-dark-900 text-white flex flex-col gap-12 overflow-hidden w-full">
 
       <motion.div
@@ -235,7 +233,7 @@ export default function Home() {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: false, amount: 0.1 }}
         variants={fadeUp}
         className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 p-10
              rounded-[2rem] border border-slate-200 dark:border-slate-800
@@ -448,11 +446,7 @@ export default function Home() {
           ))}
         </motion.div>
       </motion.div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeUp}
+      <div
         className="p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md shadow-sm transition-all duration-500"
       >
         <h2 className=" text-xl md:text-3xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
@@ -514,13 +508,12 @@ export default function Home() {
             </motion.div>
           ))}
         </motion.div>
-      </motion.div>
+      </div>
 
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
-        variants={fadeUp}
         className="p-8 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/30 dark:bg-slate-900/20 backdrop-blur-xl transition-all duration-500"
       >
         <h2 className="text-xl md:text-3xl font-bold text-slate-900 dark:text-white mb-10 flex items-center gap-3">

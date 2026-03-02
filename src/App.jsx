@@ -35,7 +35,7 @@ export default function App() {
       <NavBar />
       <div
         // Changed py-12 to pt-8 pb-20 on mobile to clear the bottom NavBar
-        className="flex-1 pt-8 pb-20 md:py-12 px-3 overflow-y-auto overflow-x-hidden text-cyan-400"
+        className="flex-1 overflow-y-auto overflow-x-hidden text-cyan-400"
         {...bind()}
         style={{ touchAction: "pan-y" }}
       >
