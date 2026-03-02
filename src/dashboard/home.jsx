@@ -127,7 +127,7 @@ export default function Home() {
     },
     {
       role: "Full Stack Developer",
-      company: "Myanmar Innovation Hub ( MIT )",
+      company: "Myanmar Information Technology ( MIT )",
       duration: "2025 - Currently",
       description:
         "Working on HR Software System using Angular , Node.js and Postgres  ",
