@@ -139,7 +139,7 @@ export default function Home() {
 
   const education = [
     {
-      degree: "B.Sc. in Computer Science",
+      degree: "BC.Sc (Bachelor of Computer Science)",
       institution: "University of Hinthada",
       year: "2016 - 2025",
       link: "https://ucsh.edu.mm/",
