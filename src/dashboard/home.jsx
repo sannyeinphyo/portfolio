@@ -386,7 +386,14 @@ export default function Home() {
                   <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">
                     {item.role}
                   </h3>
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 w-fit">
+                  <span
+                    className={`inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase w-fit
+                    ${
+                      item.duration.toLowerCase().includes("currently")
+                        ? "bg-blue-100 text-blue-700 dark:bg-blue-600 dark:text-blue-100"
+                        : "bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400"
+                    } `}
+                  >
                     {item.duration}
                   </span>
                 </div>
