@@ -46,7 +46,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center p-4 bg-slate-50 bg-white/70 dark:bg-gray-800/40 transition-colors duration-500 overflow-hidden">
+    <div className="min-h-screen relative flex items-center justify-center p-6 bg-slate-50 bg-white/70 dark:bg-gray-800/40 transition-colors duration-500 overflow-hidden">
 
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-200/30 dark:bg-indigo-500/5 rounded-full blur-[100px]" />
