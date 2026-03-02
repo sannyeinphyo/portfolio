@@ -76,7 +76,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center p-4 md:p-7 bg-slate-50 dark:bg-gray-950 transition-colors duration-500 overflow-hidden">
+    <div className="min-h-screen relative flex items-center justify-center p-4 md:p-7  transition-colors duration-500 overflow-hidden">
       {/* Background Decorative Orbs */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-200/30 dark:bg-indigo-500/5 rounded-full blur-[100px]" />
@@ -84,7 +84,7 @@ const About = () => {
       </div>
 
       <motion.div
-        className="relative z-10 max-w-5xl w-full space-y-12 p-8 md:p-12 rounded-[2rem] mb-24 md:my-12
+        className="relative z-10 max-w-5xl w-full space-y-12 p-8 md:p-12 rounded-[2rem] 
                bg-white/80 dark:bg-gray-900/40 backdrop-blur-3xl
                border border-white dark:border-white/10 shadow-2xl shadow-slate-200/50 dark:shadow-black/20"
         variants={containerVariants}

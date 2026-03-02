@@ -34,8 +34,7 @@ export default function App() {
     <div className=" flex flex-col-reverse md:flex-col overflow-hidden bg-slate-50 dark:bg-gray-900">
       <NavBar />
       <div
-        // Changed py-12 to pt-8 pb-20 on mobile to clear the bottom NavBar
-        className="flex-1 overflow-y-auto overflow-x-hidden text-cyan-400"
+        className="flex-1 overflow-y-auto overflow-x-hidden text-cyan-400 mb-16 md:mb-0"
         {...bind()}
         style={{ touchAction: "pan-y" }}
       >
