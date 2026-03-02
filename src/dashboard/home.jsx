@@ -6,7 +6,6 @@ import {
   FaGithub,
   FaTelegram,
   FaAngular,
-  FaExternalLinkAlt,
 } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
 import { FaReact, FaNodeJs, FaPython, FaHtml5 } from "react-icons/fa";
@@ -17,8 +16,10 @@ import {
   SiMysql,
   SiFigma,
   SiCisco,
-  SiTypescript,
   SiPostgresql,
+  SiBootstrap,
+  SiJavascript,
+  SiNestjs,
 } from "react-icons/si";
 
 export default function Home() {
@@ -50,13 +51,15 @@ export default function Home() {
     { name: "HTML & CSS", color: "#F24E1E", icon: <FaHtml5 /> },
     {
       name: "JavaScript & TypeScript",
-      color: "#61DAFB",
-      icon: <SiTypescript />,
+      color: "#FFD43B",
+      icon: <SiJavascript />,
     },
     { name: "React & Next.js", color: "#61DAFB", icon: <FaReact /> },
-    { name: "Angular", color: "#e41c77", icon: <FaAngular /> },
+    { name: "Angular", color: "#FF0000 ", icon: <FaAngular /> },
     { name: "Node.js & Express", color: "#339933", icon: <FaNodeJs /> },
+    { name: "Nest.js", color: "#e41c77", icon: <SiNestjs /> },
     { name: "Tailwind CSS & MUI", color: "#38B2AC", icon: <SiTailwindcss /> },
+    { name: "Boorstrap", color: "#6f42c1", icon: <SiBootstrap /> },
     { name: "MySQL & Prisma", color: "#00758F", icon: <SiMysql /> },
     { name: "Postgres & Sequlize", color: "#00758F", icon: <SiPostgresql /> },
     { name: "MongoDB / REST API", color: "#47A248", icon: <SiMongodb /> },
