@@ -34,15 +34,12 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="relative min-h-screen mt-12 rounded-2xl bg-white dark:bg-gray-900 text-slate-900 dark:text-white flex items-center justify-center p-4 md:p-8 transition-colors duration-500 overflow-hidden">
+    <div className="relative min-h-screen mb-24 md:my-0 rounded-2xl flex items-center justify-center p-4 md:p-8 transition-colors duration-500 overflow-hidden">
       <div className="absolute top-1/4 -right-20 w-80 h-80 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <motion.div
-        className="relative z-10 max-w-4xl w-full space-y-10"
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
+        className="relative z-10 max-w-4xl w-full space-y-10 p-8 md:p-12 rounded-[2rem] bg-white/70 dark:bg-gray-800/40
+               backdrop-blur-2xl border border-white/20 dark:border-white/10 shadow-2xl shadow-black/5"
       >
         <div className="text-center space-y-2">
           <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight">
@@ -61,11 +58,18 @@ export default function ContactSection() {
               title="Address"
               detail="Yangon, Myanmar"
             />
-            <ContactInfoCard
-              icon={<FaMailBulk className="text-yellow-500" />}
-              title="Email"
-              detail="sannyeinphyo@gmail.com"
-            />
+            <a
+              href="mailto:sannyeinphyo@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+              className="block"
+            >
+              <ContactInfoCard
+                icon={<FaMailBulk className="text-yellow-500" />}
+                title="Email"
+                detail="sannyeinphyo@gmail.com"
+              />
+            </a>
             <a
               href="https://github.com/sannyeinphyo"
               target="_blank"
@@ -79,13 +83,15 @@ export default function ContactSection() {
               />
             </a>
           </div>
-
-          {/* Form */}
           <form
             action="https://formspree.io/f/xjkevvvy"
             method="POST"
             onSubmit={handleSubmit}
-            className="md:col-span-2 flex flex-col gap-4 bg-slate-50 dark:bg-gray-800/40 p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-gray-700 backdrop-blur-xl shadow-xl shadow-slate-300 dark:shadow-none"
+            className="md:col-span-2 flex flex-col gap-4
+             bg-white/50 dark:bg-white/5
+             p-6 md:p-8 rounded-3xl
+             border border-slate-200 dark:border-white/10
+             backdrop-blur-xl shadow-xl dark:shadow-none"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
@@ -97,7 +103,12 @@ export default function ContactSection() {
                 }
                 placeholder="Name"
                 required
-                className="p-3 rounded-xl bg-white dark:bg-gray-900/50 border border-slate-200 dark:border-transparent focus:border-indigo-500 dark:focus:border-blue-500 transition-all outline-none text-sm dark:text-white"
+                className="p-4 rounded-2xl bg-white dark:bg-slate-900/50
+                 border border-slate-200 dark:border-white/10
+                 text-slate-900 dark:text-white
+                 placeholder:text-slate-400 dark:placeholder:text-slate-500
+                 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-blue-600
+                 outline-none transition-all"
               />
               <input
                 type="email"
@@ -108,7 +119,12 @@ export default function ContactSection() {
                 }
                 placeholder="Email"
                 required
-                className="p-3 rounded-xl bg-white dark:bg-gray-900/50 border border-slate-200 dark:border-transparent focus:border-indigo-500 dark:focus:border-blue-500 transition-all outline-none text-sm dark:text-white"
+                className="p-4 rounded-2xl bg-white dark:bg-slate-900/50
+                 border border-slate-200 dark:border-white/10
+                 text-slate-900 dark:text-white
+                 placeholder:text-slate-400 dark:placeholder:text-slate-500
+                 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-blue-600
+                 outline-none transition-all"
               />
             </div>
 
@@ -121,20 +137,22 @@ export default function ContactSection() {
               placeholder="Your Message..."
               rows={4}
               required
-              className="p-3 rounded-xl bg-white dark:bg-gray-900/50 border border-slate-200 dark:border-transparent focus:border-indigo-500 dark:focus:border-blue-500 transition-all outline-none resize-none text-sm dark:text-white"
+              className="p-4 rounded-2xl bg-white dark:bg-slate-900/50
+               border border-slate-200 dark:border-white/10
+               text-slate-900 dark:text-white
+               placeholder:text-slate-400 dark:placeholder:text-slate-500
+               focus:ring-2 focus:ring-indigo-500 dark:focus:ring-blue-600
+               outline-none resize-none transition-all"
             />
 
             <div className="flex justify-center mt-2">
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                className="px-10 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-300
-                bg-transparent border border-slate-700 text-slate-700 hover:bg-slate-900 hover:text-white
-              dark:bg-white/5 dark:text-blue-400 dark:border-blue-500/30 dark:backdrop-blur-md
-              dark:hover:border-blue-500 dark:hover:bg-blue-500/10"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                 className="inline-block px-10 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-bold shadow-lg hover:shadow-indigo-500/20 transition-all hover:-translate-y-1"
               >
-                Send
+                Send Message
               </motion.button>
             </div>
           </form>
@@ -156,7 +174,7 @@ function ContactInfoCard({ icon, title, detail }) {
         <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
           {title}
         </h4>
-        <p className="text-sm text-slate-700 dark:text-slate-200 font-medium truncate">
+        <p className="text-sm text-slate-700 dark:text-slate-200 font-medium truncate  hover:text-blue-500">
           {detail}
         </p>
       </div>
