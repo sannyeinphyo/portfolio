@@ -6,7 +6,7 @@ export function NotFound() {
   const [displayText, setDisplayText] = useState("");
   const videoRef = useRef(null);
 
-  // 1. Optimized Random Text
+
   useEffect(() => {
     const messages = [
       "Why are you looking for a page that doesn't exist?",
@@ -18,7 +18,6 @@ export function NotFound() {
     setDisplayText(messages[Math.floor(Math.random() * messages.length)]);
   }, []);
 
-  // 2. Video Performance Optimization
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -34,7 +33,7 @@ export function NotFound() {
   }, []);
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-[75vh] text-center px-4 overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center min-h-screen  text-center px-4 overflow-hidden">
 
       {/* Video - No shaking, just a clean fade-in */}
       <motion.div
