@@ -10,6 +10,11 @@ export default function ContactSection() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.1 } },
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     _replyto: "",
@@ -35,14 +40,17 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="relative min-h-screen  rounded-2xl flex flex-col items-center justify-center p-4 md:p-8 md:mt-11 transition-colors duration-500 overflow-hidden ">
+    <div className="relative min-h-screen  rounded-2xl flex flex-col items-center justify-center p-4 md:p-8 md:mt-11 transition-all duration-500 overflow-hidden ">
       <div className="absolute top-1/4 -right-20 w-80 h-80 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
         className="relative z-10 max-w-5xl w-full space-y-10 p-8 md:p-12 rounded-[2rem] bg-white/70 dark:bg-gray-800/40
                backdrop-blur-2xl border border-white/20 dark:border-white/10 shadow-2xl shadow-black/5"
       >
-        <div className="text-center space-y-2">
+        <motion.div className="text-center space-y-2" variants={fadeUp}>
           <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight">
             Get in{" "}
             <span className="text-indigo-600 dark:text-blue-500">Touch</span>
@@ -50,10 +58,13 @@ export default function ContactSection() {
           <p className="text-slate-500 dark:text-gray-400 font-medium">
             Have a project in mind? Let's build it together.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-          <div className="space-y-4">
+        <motion.div
+          variants={fadeUp}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start"
+        >
+          <motion.div variants={fadeUp} className="space-y-4">
             <ContactInfoCard
               icon={<FaAddressBook className="text-teal-500" />}
               title="Address"
@@ -83,7 +94,7 @@ export default function ContactSection() {
                 detail="github.com/sannyeinphyo"
               />
             </a>
-          </div>
+          </motion.div>
           <form
             action="https://formspree.io/f/xjkevvvy"
             method="POST"
@@ -94,7 +105,10 @@ export default function ContactSection() {
              border border-slate-200 dark:border-white/10
              backdrop-blur-xl shadow-xl dark:shadow-none"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <motion.div
+              variants={fadeUp}
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
               <input
                 type="text"
                 name="name"
@@ -127,26 +141,26 @@ export default function ContactSection() {
                  focus:ring-2 focus:ring-indigo-500 dark:focus:ring-blue-600
                  outline-none transition-all"
               />
-            </div>
-
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={(e) =>
-                setFormData({ ...formData, message: e.target.value })
-              }
-              placeholder="Your Message..."
-              rows={4}
-              required
-              className="p-4 rounded-2xl bg-white dark:bg-slate-900/50
+            </motion.div>
+            <motion.div variants={fadeUp} className="grid grid-cols-1">
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
+                placeholder="Your Message..."
+                required
+                className="p-4 rounded-2xl bg-white dark:bg-slate-900/50
                border border-slate-200 dark:border-white/10
                text-slate-900 dark:text-white
                placeholder:text-slate-400 dark:placeholder:text-slate-500
                focus:ring-2 focus:ring-indigo-500 dark:focus:ring-blue-600
                outline-none resize-none transition-all"
-            />
+              />
+            </motion.div>
 
-            <div className="flex justify-center mt-2">
+            <motion.div variants={fadeUp} className="flex justify-center mt-2">
               <motion.button
                 type="submit"
                 whileHover={{ scale: 1.02 }}
@@ -155,9 +169,9 @@ export default function ContactSection() {
               >
                 Send Message
               </motion.button>
-            </div>
+            </motion.div>
           </form>
-        </div>
+        </motion.div>
         <footer>
           <div className="max-w-full min-h-[3rem] justify-center text-center">
             <p className="text-sm md:text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
@@ -169,7 +183,7 @@ export default function ContactSection() {
                   "Let's fly to moon together.",
                   "Innovation starts with a single conversation.",
                   "May our collaboration be bug-free 🐛❌.",
-                  "Let’s turn coffee into magic ✨☕"
+                  "Let’s turn coffee into magic ✨☕",
                 ]}
               />
             </p>
