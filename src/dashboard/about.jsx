@@ -84,7 +84,7 @@ const About = () => {
 
       <motion.div
         className="relative z-10 max-w-5xl w-full space-y-12 p-8 md:p-12 rounded-[2rem]
-               bg-white/80 dark:bg-gray-900/40 backdrop-blur-3xl
+               bg-white/70 dark:bg-gray-800/40 backdrop-blur-3xl
                border border-white dark:border-white/10 shadow-2xl shadow-slate-200/50 dark:shadow-black/20"
         variants={containerVariants}
         initial="hidden"

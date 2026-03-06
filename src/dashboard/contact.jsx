@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { FaAddressBook, FaMailBulk, FaGithub } from "react-icons/fa";
+import { Typewriter } from "react-simple-typewriter";
 
 export default function ContactSection() {
   const fadeUp = {
@@ -34,11 +35,11 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="relative min-h-screen  rounded-2xl flex items-center justify-center p-4 md:p-8 transition-colors duration-500 overflow-hidden">
+    <div className="relative min-h-screen  rounded-2xl flex flex-col items-center justify-center p-4 md:p-8 md:mt-11 transition-colors duration-500 overflow-hidden ">
       <div className="absolute top-1/4 -right-20 w-80 h-80 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <motion.div
-        className="relative z-10 max-w-4xl w-full space-y-10 p-8 md:p-12 rounded-[2rem] bg-white/70 dark:bg-gray-800/40
+        className="relative z-10 max-w-5xl w-full space-y-10 p-8 md:p-12 rounded-[2rem] bg-white/70 dark:bg-gray-800/40
                backdrop-blur-2xl border border-white/20 dark:border-white/10 shadow-2xl shadow-black/5"
       >
         <div className="text-center space-y-2">
@@ -150,13 +151,30 @@ export default function ContactSection() {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                 className="inline-block px-10 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-bold shadow-lg hover:shadow-indigo-500/20 transition-all hover:-translate-y-1"
+                className="inline-block px-10 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-bold shadow-lg hover:shadow-indigo-500/20 transition-all hover:-translate-y-1"
               >
                 Send Message
               </motion.button>
             </div>
           </form>
         </div>
+        <footer>
+          <div className="max-w-full min-h-[3rem] justify-center text-center">
+            <p className="text-sm md:text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
+              <Typewriter
+                cursor={true}
+                cursorStyle={"|"}
+                cursorBlinking
+                words={[
+                  "Let's fly to moon together.",
+                  "Innovation starts with a single conversation.",
+                  "May our collaboration be bug-free 🐛❌.",
+                  "Let’s turn coffee into magic ✨☕"
+                ]}
+              />
+            </p>
+          </div>
+        </footer>
       </motion.div>
     </div>
   );

@@ -35,7 +35,6 @@ export function NotFound() {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen  text-center px-4 overflow-hidden">
 
-      {/* Video - No shaking, just a clean fade-in */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
