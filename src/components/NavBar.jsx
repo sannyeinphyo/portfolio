@@ -53,7 +53,7 @@ export default function NavBar() {
     }`;
 
   return (
-    <div className="fixed bottom-4 md:bottom-auto md:top-0 left-0 w-full z-50 flex justify-center p-2 sm:p-4">
+    <div className="fixed bottom-4 md:bottom-auto md:top-0 left-0 w-full z-10000 flex justify-center p-2 md:p-4">
       <nav
         ref={navRef}
         className="relative flex items-center gap-1 sm:gap-2 p-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/50 dark:border-white/10 shadow-lg rounded-2xl w-full max-w-fit justify-center"

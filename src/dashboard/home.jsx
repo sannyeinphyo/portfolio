@@ -134,6 +134,7 @@ export default function Home() {
       company: "Ultimate Solution Company",
       link : "",
       duration: "Internship",
+      project : [{name: "Intern Link" , color : "bg-blue-500"}],
       description:
         "Built responsive dashboards using React, Next.js, Node.js, Tailwind, and MUI.",
     },
@@ -141,7 +142,8 @@ export default function Home() {
       role: "Full Stack Developer",
       company: "Myanmar Information Technology ( MIT )",
       link : "https://mit.com.mm/",
-      duration: "2025 - Currently",
+      duration: "2025 - Present",
+      project : [{name : "HxM" , color : "bg-blue-500"},{name : "A365", color : "bg-blue-500"}],
       description:
         "Working on HR Software System using Angular , Node.js and Postgres  ",
     },
@@ -170,12 +172,13 @@ export default function Home() {
         className="absolute -right-20 top-1/2 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none z-0"
       />
       <div className="flex flex-col gap-12 px-4 py-4 ">
+        <section className="relative w-full min-h-screen flex flex-col items-center justify-center text-center">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={fadeUp}
-          className="relative z-10 min-h-[70vh] flex flex-col items-center justify-center text-center space-y-6 "
+          className="relative z-10 flex flex-col items-center justify-center text-center space-y-6"
         >
           <div className="space-y-2">
             <motion.h1
@@ -213,86 +216,139 @@ export default function Home() {
 
           <motion.div
             variants={fadeUp}
-            className="flex flex-col sm:flex-row gap-4 pt-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto"
           >
+            {/* Download Resume Button (Solid Primary) */}
             <a
               href="/portfolio/resume/snp_resume.pdf"
               target="_blank"
-              className="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-bold shadow-lg shadow-blue-500/20 hover:scale-105 transition-all duration-300"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 w-full sm:w-auto text-white dark:text-slate-900 font-bold rounded-2xl bg-slate-900 dark:bg-white transition-all duration-300  dark:hover:text-slate-950 shadow-md active:translate-y-0"
             >
-              Download Resume
+              <span className="relative z-10">Download Resume</span>
+
+              <svg
+                className="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-y-0.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
             </a>
 
+            {/* Contact Me Button (Solid Outline / Glass) */}
             <a
               href="mailto:sannyeinphyo@gmail.com"
-              className="px-8 py-4 bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 rounded-2xl font-bold hover:bg-slate-50 hover:scale-105 dark:hover:bg-slate-800 transition-all duration-300"
+              className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 w-full sm:w-auto text-slate-800 dark:text-slate-200 font-bold rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-300 dark:border-slate-800 transition-all duration-300  active:translate-y-0"
             >
-              Contact Me
+              <span>Contact Me</span>
+
+              <svg
+                className="w-4 h-4 text-slate-500 dark:text-slate-400transition-all duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
             </a>
           </motion.div>
         </motion.div>
+        </section>
 
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.1 }}
-          // variants={fadeUp}
-          className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 p-10
-             rounded-[2rem] border border-slate-200 dark:border-slate-800
-             bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl
-             shadow-2xl shadow-black/5 transition-all duration-500"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="relative z-10 w-full group"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="relative group"
+          {/* Ambient Hover Glow */}
+          <div className="absolute -inset-0.5 rounded-md blur opacity-10 group-hover:opacity-25 transition duration-500 pointer-events-none" />
+
+          <div
+            className="relative flex flex-col gap-6 p-8 md:p-10 rounded-[2rem]
+                      border border-slate-200 dark:border-slate-800
+                      bg-white/50 dark:bg-slate-900/40 backdrop-blur-md
+                      shadow-sm transition-all duration-500"
           >
-            <div className="absolute -inset-1 bg-brown-600 rounded-full blur-sm opacity-50"></div>
-            {/* <motion.img
-              src="/portfolio/snp.jpg"
-              alt="my-photo"
-              className="relative w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-4 border-white dark:border-slate-800 shadow-xl"
-              viewport={{ amount: 0.2 }}
-            /> */}
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col gap-4 text-center md:text-left max-w-xl"
-          >
-            <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-cyan-600 dark:text-cyan-400">
-              Introduction
-            </h2>
-            <div className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white leading-tight">
+            {/* Header with Status Badge */}
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+                <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-600 dark:text-cyan-400">
+                  Introduction
+                </h2>
+              </div>
+
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                Available for new opportunities
+              </span>
+            </div>
+
+            {/* Main Headline */}
+            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight">
               I build modern web applications that are{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
                 functional
               </span>{" "}
               and visually appealing.
+            </h3>
+
+            {/* Description Paragraph */}
+        <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 font-normal leading-relaxed max-w-3xl">
+          Specializing in full-stack web and mobile development with{" "}
+          <strong className="text-slate-900 dark:text-white font-semibold">
+            Angular & React
+          </strong>{" "}
+          on the frontend, and{" "}
+          <strong className="text-slate-900 dark:text-white font-semibold">
+            Node.js, Nest.js & Postgres
+          </strong>{" "}
+          on the backend.
+        </p>
+
+            {/* Quick Highlights Row */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2 border-t border-slate-200/60 dark:border-slate-800/60">
+              <div>
+                <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Focus</div>
+                <div className="text-sm font-bold text-slate-800 dark:text-slate-200 mt-0.5">Full-stack & APIs</div>
+              </div>
+              <div>
+                <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Core Stack</div>
+                <div className="text-sm font-bold text-slate-800 dark:text-slate-200 mt-0.5">Angular / Node / Postgres</div>
+              </div>
+              <div className="col-span-2 sm:col-span-1">
+                <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Architecture</div>
+                <div className="text-sm font-bold text-slate-800 dark:text-slate-200 mt-0.5">Clean & Scalable</div>
+              </div>
             </div>
-            <p className="text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
-              Specializing in the{" "}
-              <span className="text-slate-900 dark:text-white underline decoration-cyan-500/50">
-                Angular & Node.js
-              </span>{" "}
-              stack, I focus on creating seamless user experiences and robust
-              backend architectures.
-            </p>
-            <div className="pt-2 flex justify-center md:justify-start">
-              <div className="h-1 w-20 bg-cyan-500/20 rounded-full">
+
+            {/* Animated Line */}
+            <div className="pt-1">
+              <div className="h-1 w-20 bg-cyan-500/20 rounded-full overflow-hidden">
                 <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "100%" }}
-                  transition={{ duration: 1, delay: 0.5 }}
+                  initial={{ x: "-100%" }}
+                  whileInView={{ x: "0%" }}
+                  transition={{ duration: 1, ease: "easeInOut" }}
                   className="h-full bg-cyan-500 rounded-full"
                 />
               </div>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
-
         <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8">
           <motion.div
             initial="hidden"
@@ -300,11 +356,12 @@ export default function Home() {
             viewport={{ once: false, amount: 0.2 }}
             className="p-5 md:p-8  rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md transition-all duration-500"
           >
-            <h2 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
-              <span className="w-1.5 h-6 bg-cyan-500 rounded-full"></span>
-              Technical Stack
-            </h2>
-
+              <div className="flex items-center gap-2 mb-6">
+                <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+                <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-600 dark:text-cyan-400">
+                  Technical Skills
+                </h2>
+              </div>
             <motion.div
               variants={{
                 visible: { transition: { staggerChildren: 0.05 } },
@@ -334,10 +391,12 @@ export default function Home() {
             viewport={{ once: true, amount: 0.2 }}
             className="p-8  rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md transition-all duration-500"
           >
-            <h2 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
-              <span className="w-1.5 h-6 bg-blue-500 rounded-full"></span>
-              Get In Touch
-            </h2>
+              <div className="flex items-center gap-2 mb-6">
+                <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+                <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-600 dark:text-cyan-400">
+                  Get in Touch
+                </h2>
+              </div>
 
             <motion.ul
               initial="hidden"
@@ -382,10 +441,12 @@ export default function Home() {
           variants={fadeUp}
           className="p-8  rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md transition-all duration-500"
         >
-          <h2 className="text-xl md:text-3xl font-bold text-slate-900 dark:text-white mb-10 flex items-center gap-3">
-            <span className="w-1.5 h-8 bg-blue-600 rounded-full"></span>
-            Professional Experience
-          </h2>
+              <div className="flex items-center gap-2 mb-6">
+                <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+                <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-600 dark:text-cyan-400">
+                  Experiences
+                </h2>
+              </div>
 
           <motion.div
             initial="hidden"
@@ -409,9 +470,9 @@ export default function Home() {
                       {item.role}
                     </h3>
                     <span
-                      className={`inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase w-fit
+                      className={`inline-block px-3 py-1 rounded-md text-xs font-bold tracking-wider uppercase w-fit
                     ${
-                      item.duration.toLowerCase().includes("currently")
+                      item.duration.toLowerCase().includes("present")
                         ? "bg-blue-100 text-blue-700 dark:bg-blue-600 dark:text-blue-100"
                         : "bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400"
                     } `}
@@ -432,29 +493,49 @@ export default function Home() {
                     {item.description}
                   </p>
 
+                  {item.project && item.project.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-2 pt-1">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mr-1">
+                        {item.project.length > 1 ? "Projects" : "Project"}:
+                      </span>
+                      {item.project.map((p, index) => (
+                        <span
+                          key={index}
+                          className="px-2.5 py-0.5 rounded-md text-xs font-semibold tracking-wide
+                                    bg-blue-500/10 text-blue-500 dark:text-blue-400 border border-blue-500/20
+                                    transition-all duration-300 ease-in-out cursor-pointer
+                                    hover:bg-blue-500 hover:text-white dark:hover:text-white
+                                    hover:border-blue-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-500/25"
+                        >
+                          {p.name}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
                   <div className="flex flex-wrap gap-2 mt-2">
                     {item.company.includes("Ultimate") ? (
                       <>
-                        <span className="text-[10px] w-15 text-center px-2 py-0.5 rounded-lg border border-green-500/20 bg-green-500/10 text-green-500 dark:hover:font-bold hover:font-bold">
-                         Next.JS
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-green-500/20 bg-green-500/10 text-green-500 cursor-pointer transition-all duration-300 ease-in-out hover:bg-green-500 hover:text-white hover:border-green-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-green-500/25">
+                          Next.js
                         </span>
-                        <span className="text-[10px] w-15 text-center px-2 py-0.5 rounded-lg border border-blue-500/20 bg-blue-500/10 text-blue-500 dark:hover:font-bold hover:font-bold">
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-blue-500/20 bg-blue-500/10 text-blue-500 cursor-pointer transition-all duration-300 ease-in-out hover:bg-blue-500 hover:text-white hover:border-blue-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-500/25">
                           Prisma
                         </span>
-                        <span className="text-[10px] w-20 text-center px-2 py-0.5 rounded-lg border border-indigo-500/20 bg-indigo-500/10 text-indigo-500 dark:hover:font-bold hover:font-bold">
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-indigo-500/20 bg-indigo-500/10 text-indigo-500 cursor-pointer transition-all duration-300 ease-in-out hover:bg-indigo-500 hover:text-white hover:border-indigo-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-indigo-500/25">
                           PostgreSQL
                         </span>
                       </>
                     ) : null}
                     {item.company.includes("MIT") ? (
                       <>
-                        <span className="text-[10px] w-15 text-center px-2 py-0.5 rounded-lg border border-red-500/20 bg-red-500/10 text-red-500 dark:hover:font-bold hover:font-bold">
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-red-500/20 bg-red-500/10 text-red-500 cursor-pointer transition-all duration-300 ease-in-out hover:bg-red-500 hover:text-white hover:border-red-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-red-500/25">
                           Angular
                         </span>
-                        <span className="text-[10px] w-15 text-center px-2 py-0.5 rounded-lg border border-blue-500/20 bg-blue-500/10 text-blue-500 dark:hover:font-bold hover:font-bold">
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-blue-500/20 bg-blue-500/10 text-blue-500 cursor-pointer transition-all duration-300 ease-in-out hover:bg-blue-500 hover:text-white hover:border-blue-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-500/25">
                           Node.js
                         </span>
-                        <span className="text-[10px] w-20 text-center px-2 py-0.5 rounded-lg border border-indigo-500/20 bg-indigo-500/10 text-indigo-500 dark:hover:font-bold hover:font-bold">
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-indigo-500/20 bg-indigo-500/10 text-indigo-500 cursor-pointer transition-all duration-300 ease-in-out hover:bg-indigo-500 hover:text-white hover:border-indigo-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-indigo-500/25">
                           PostgreSQL
                         </span>
                       </>
@@ -466,10 +547,12 @@ export default function Home() {
           </motion.div>
         </motion.div>
         <div className="p-8  rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md shadow-sm transition-all duration-500">
-          <h2 className=" text-xl md:text-3xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
-            <span className="w-1.5 h-8 bg-cyan-500 rounded-full"></span>
-            Education
-          </h2>
+              <div className="flex items-center gap-2 mb-6">
+                <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+                <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-600 dark:text-cyan-400">
+                  Edication
+                </h2>
+              </div>
 
           <motion.div
             initial="hidden"
@@ -533,10 +616,12 @@ export default function Home() {
           viewport={{ once: true, amount: 0.1 }}
           className="p-8  rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white/30 dark:bg-slate-900/20 backdrop-blur-xl transition-all duration-500"
         >
-          <h2 className="text-xl md:text-3xl font-bold text-slate-900 dark:text-white mb-10 flex items-center gap-3">
-            <span className="w-1.5 h-8 bg-indigo-500 rounded-full"></span>
-            Featured Projects
-          </h2>
+              <div className="flex items-center gap-2 mb-6">
+                <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+                <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-600 dark:text-cyan-400">
+                  Featured Projects
+                </h2>
+              </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, i) => (

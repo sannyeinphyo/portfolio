@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaReact, FaNodeJs, FaGitAlt , FaCloud } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiMysql,
@@ -17,10 +17,16 @@ import {
   SiMui,
   SiAngular,
   SiPostgresql,
+  SiDocker,
+  SiVercel,
+  SiRender,
+  SiAmazonwebservices
 } from "react-icons/si";
 import { Link } from "react-router-dom";
 
 const About = () => {
+  const [activeCategory, setActiveCategory] = useState("all");
+
   const containerVariants = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.1 } },
@@ -37,47 +43,35 @@ const About = () => {
   };
 
   const skills = [
-    { name: "HTML", icon: <SiHtml5 className="text-orange-500 text-4xl" /> },
-    { name: "CSS", icon: <SiCss3 className="text-blue-500 text-4xl" /> },
-    {
-      name: "JavaScript",
-      icon: <SiJavascript className="text-yellow-400 text-4xl" />,
-    },
-    { name: "Figma", icon: <SiFigma className="text-purple-500 text-4xl" /> },
-    { name: "React", icon: <FaReact className="text-sky-400 text-4xl" /> },
-    { name: "Angular", icon: <SiAngular className="text-red-500 text-4xl" /> },
-    {
-      name: "Next.js",
-      icon: <SiNextdotjs className="text-slate-900 dark:text-white text-4xl" />,
-    },
-    { name: "Node.js", icon: <FaNodeJs className="text-green-500 text-4xl" /> },
-    { name: "Git", icon: <FaGitAlt className="text-orange-500 text-4xl" /> },
-    { name: "API", icon: <SiPostman className="text-orange-500 text-4xl" /> },
-    {
-      name: "Mongodb",
-      icon: <SiMongodb className="text-green-500 text-4xl" />,
-    },
-    {
-      name: "Postgres",
-      icon: <SiPostgresql className="text-blue-500 text-4xl" />,
-    },
-    { name: "MySQL", icon: <SiMysql className="text-yellow-500 text-4xl" /> },
-    { name: "Prisma", icon: <SiPrisma className="text-cyan-300 text-4xl" /> },
-    {
-      name: "Tailwind",
-      icon: <SiTailwindcss className="text-cyan-400 text-4xl" />,
-    },
-    {
-      name: "Bootstrap",
-      icon: <SiBootstrap className="text-purple-600 text-4xl" />,
-    },
-    { name: "MUI", icon: <SiMui className="text-blue-700 text-4xl" /> },
-    { name: "Framer", icon: <SiFramer className="text-pink-400 text-4xl" /> },
+    { name: "HTML", category: "frontend", icon: <SiHtml5 className="text-orange-500 text-4xl" /> },
+    { name: "CSS", category: "frontend", icon: <SiCss3 className="text-blue-500 text-4xl" /> },
+    { name: "JavaScript", category: "frontend", icon: <SiJavascript className="text-yellow-400 text-4xl" /> },
+    { name: "React", category: "frontend", icon: <FaReact className="text-sky-400 text-4xl" /> },
+    { name: "Angular", category: "frontend", icon: <SiAngular className="text-red-500 text-4xl" /> },
+    { name: "Next.js", category: "frontend", icon: <SiNextdotjs className="text-slate-900 dark:text-white text-4xl" /> },
+    { name: "Tailwind", category: "frontend", icon: <SiTailwindcss className="text-cyan-400 text-4xl" /> },
+    { name: "Bootstrap", category: "frontend", icon: <SiBootstrap className="text-purple-600 text-4xl" /> },
+    { name: "MUI", category: "frontend", icon: <SiMui className="text-blue-700 text-4xl" /> },
+    { name: "Framer", category: "frontend", icon: <SiFramer className="text-pink-400 text-4xl" /> },
+    { name: "Node.js", category: "backend", icon: <FaNodeJs className="text-green-500 text-4xl" /> },
+    { name: "Mongodb", category: "backend", icon: <SiMongodb className="text-green-500 text-4xl" /> },
+    { name: "Postgres", category: "backend", icon: <SiPostgresql className="text-blue-500 text-4xl" /> },
+    { name: "MySQL", category: "backend", icon: <SiMysql className="text-yellow-500 text-4xl" /> },
+    { name: "Docker", category: "tools", icon: <SiDocker className="text-blue-500 text-4xl" /> },
+    { name: "Vercel", category: "tools", icon: <SiVercel className="text-slate-900 dark:text-white text-4xl" /> },
+    { name: "AWS", category: "tools", icon: <SiAmazonwebservices className="text-amber-500 text-4xl" /> },
+    { name: "Prisma", category: "backend", icon: <SiPrisma className="text-cyan-300 text-4xl" /> },
+    { name: "Figma", category: "tools", icon: <SiFigma className="text-purple-500 text-4xl" /> },
+    { name: "Git", category: "tools", icon: <FaGitAlt className="text-orange-500 text-4xl" /> },
+    { name: "Postman", category: "tools", icon: <SiPostman className="text-orange-500 text-4xl" /> },
   ];
 
+  const filteredSkills = activeCategory === "all"
+    ? skills
+    : skills.filter((skill) => skill.category === activeCategory);
+
   return (
-    // Change outer div class to:
-<div className="min-h-screen relative flex items-center justify-center pt-24 md:pt-32 p-4 md:p-7 transition-colors duration-500 overflow-hidden">
+    <div className="min-h-screen relative flex items-center justify-center pt-24 md:pt-32 p-4 md:p-7 transition-colors duration-500 overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-200/30 dark:bg-indigo-500/5 rounded-full blur-[100px]" />
         <div className="absolute bottom-20 right-10 w-72 h-72 bg-blue-200/30 dark:bg-blue-500/5 rounded-full blur-[100px]" />
@@ -158,30 +152,71 @@ const About = () => {
           ))}
         </motion.div>
 
-        {/* Skills Grid */}
-        <motion.div
-          variants={containerVariants}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4"
+        {/* Skills Section Header with Minimal Filters */}
+        <div className="space-y-6">
+  <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-between gap-4">
+    <h2 className="text-xs uppercase tracking-[0.2em] font-bold text-slate-400 dark:text-gray-500">
+      Tech Stack
+    </h2>
+
+    {/* Filter Buttons */}
+    <div className="flex flex-wrap gap-2">
+      {[
+        { id: "all", label: "All" },
+        { id: "frontend", label: "Frontend" },
+        { id: "backend", label: "Backend & DB" },
+        { id: "tools", label: "Tools & Cloud" },
+      ].map((tab) => (
+        <button
+          key={tab.id}
+          onClick={() => setActiveCategory(tab.id)}
+          className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
+            activeCategory === tab.id
+              ? "bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-md"
+              : "bg-white/50 dark:bg-white/5 text-slate-600 dark:text-gray-400 hover:bg-white dark:hover:bg-white/10 border border-slate-200 dark:border-white/10"
+          }`}
         >
-          {skills.map((skill, idx) => (
-            <motion.div
-              key={idx}
-              variants={skillVariants}
-              whileHover={{
-                y: -8,
-                transition: { type: "spring", stiffness: 400 },
-              }}
-              className="bg-white/50 dark:bg-white/[0.03] backdrop-blur-md p-6 rounded-3xl border border-white dark:border-white/10 shadow-sm hover:shadow-md transition-all flex flex-col items-center gap-3 group"
-            >
-              <div className="filter drop-shadow-sm group-hover:scale-110 transition-transform">
-                {skill.icon}
-              </div>
-              <span className="text-[10px] font-bold tracking-widest text-slate-400 dark:text-gray-500 uppercase">
-                {skill.name}
-              </span>
-            </motion.div>
-          ))}
+          {tab.label}
+        </button>
+      ))}
+    </div>
+  </motion.div>
+
+  {/* Skills Grid with Smooth AnimatePresence */}
+  <motion.div
+    layout
+    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 min-h-[140px]"
+  >
+    <AnimatePresence mode="popLayout">
+      {filteredSkills.map((skill) => (
+        <motion.div
+          layout
+          key={skill.name}
+          initial={{ opacity: 0, scale: 0.8, y: 10 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.8, y: 10 }}
+          transition={{
+            opacity: { duration: 0.2 },
+            scale: { duration: 0.2 },
+            layout: { type: "spring", stiffness: 300, damping: 25 },
+          }}
+          whileHover={{
+            y: -6,
+            transition: { type: "spring", stiffness: 400, damping: 20 },
+          }}
+          className="bg-white/50 dark:bg-white/[0.03] backdrop-blur-md p-6 rounded-3xl border border-white dark:border-white/10 shadow-sm hover:shadow-md transition-all flex flex-col items-center gap-3 group"
+        >
+          <div className="filter drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+            {skill.icon}
+          </div>
+          <span className="text-[10px] font-bold tracking-widest text-slate-400 dark:text-gray-500 uppercase">
+            {skill.name}
+          </span>
         </motion.div>
+      ))}
+    </AnimatePresence>
+  </motion.div>
+</div>
 
         {/* Status Badges & CTA */}
         <div className="space-y-8">
