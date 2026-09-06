@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useGesture } from "react-use-gesture";
+import { useGesture } from "@use-gesture/react";
 import { AppRouter } from "./core/routes/appRoute";
 import NavBar from "./components/NavBar";
 

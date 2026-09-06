@@ -24,7 +24,7 @@ export default function NavBar() {
       const activeLink = navRef.current?.querySelector(".active-link");
       if (activeLink) {
         const { offsetLeft, offsetWidth } = activeLink;
-        console.log(activeLink);
+        // console.log(activeLink);
         setIndicatorStyle({
           left: offsetLeft,
           width: offsetWidth,
@@ -86,7 +86,7 @@ export default function NavBar() {
 
         <button
           onClick={toggleTheme}
-          className="relative z-10 p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 transition-all duration-300 active:scale-90 shrink-0"
+          className="relative z-10 p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 transition-all duration-300 active:scale-90 shrink-0 justify-content-center align-items-center"
         >
           <div className="relative w-4 h-4 sm:w-5 sm:h-5 overflow-hidden">
             <FaSun

@@ -40,9 +40,9 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="relative min-h-screen  rounded-2xl flex flex-col items-center justify-center p-4 md:p-8 md:mt-11 transition-all duration-500 overflow-hidden ">
-      <div className="absolute top-1/4 -right-20 w-80 h-80 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
+  <div className="relative min-h-screen rounded-2xl flex flex-col items-center pt-24 md:pt-32 p-4 md:p-8 transition-all duration-500 overflow-hidden">
+    <div className="absolute top-1/4 -right-20 w-80 h-80 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
       <motion.div
         variants={containerVariants}
         initial="hidden"

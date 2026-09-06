@@ -132,6 +132,7 @@ export default function Home() {
     {
       role: "Full Stack Developer - Intern",
       company: "Ultimate Solution Company",
+      link : "",
       duration: "Internship",
       description:
         "Built responsive dashboards using React, Next.js, Node.js, Tailwind, and MUI.",
@@ -139,6 +140,7 @@ export default function Home() {
     {
       role: "Full Stack Developer",
       company: "Myanmar Information Technology ( MIT )",
+      link : "https://mit.com.mm/",
       duration: "2025 - Currently",
       description:
         "Working on HR Software System using Angular , Node.js and Postgres  ",
@@ -234,7 +236,7 @@ export default function Home() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.1 }}
-          variants={fadeUp}
+          // variants={fadeUp}
           className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-12 p-10
              rounded-[2rem] border border-slate-200 dark:border-slate-800
              bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl
@@ -246,13 +248,13 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="relative group"
           >
-            <div className="absolute -inset-1 bg-blue-600 rounded-full blur-sm opacity-50"></div>
-            <motion.img
-              src="/portfolio/oggy.png"
+            <div className="absolute -inset-1 bg-brown-600 rounded-full blur-sm opacity-50"></div>
+            {/* <motion.img
+              src="/portfolio/snp.jpg"
               alt="my-photo"
               className="relative w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-4 border-white dark:border-slate-800 shadow-xl"
               viewport={{ amount: 0.2 }}
-            />
+            /> */}
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -419,7 +421,11 @@ export default function Home() {
                   </div>
 
                   <div className="text-blue-600 dark:text-blue-400 font-semibold text-md md:text-lg flex items-center gap-2">
-                    <span>{item.company}</span>
+                    <span>
+                      <a href= {item.link} blank="">
+                      {item.company}
+                      </a>
+                      </span>
                   </div>
 
                   <p className="text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
@@ -427,15 +433,28 @@ export default function Home() {
                   </p>
 
                   <div className="flex flex-wrap gap-2 mt-2">
+                    {item.company.includes("Ultimate") ? (
+                      <>
+                        <span className="text-[10px] w-15 text-center px-2 py-0.5 rounded-lg border border-green-500/20 bg-green-500/10 text-green-500 dark:hover:font-bold hover:font-bold">
+                         Next.JS
+                        </span>
+                        <span className="text-[10px] w-15 text-center px-2 py-0.5 rounded-lg border border-blue-500/20 bg-blue-500/10 text-blue-500 dark:hover:font-bold hover:font-bold">
+                          Prisma
+                        </span>
+                        <span className="text-[10px] w-20 text-center px-2 py-0.5 rounded-lg border border-indigo-500/20 bg-indigo-500/10 text-indigo-500 dark:hover:font-bold hover:font-bold">
+                          PostgreSQL
+                        </span>
+                      </>
+                    ) : null}
                     {item.company.includes("MIT") ? (
                       <>
-                        <span className="text-[10px] px-2 py-0.5 rounded-lg border border-red-500/20 bg-red-500/10 text-red-500">
+                        <span className="text-[10px] w-15 text-center px-2 py-0.5 rounded-lg border border-red-500/20 bg-red-500/10 text-red-500 dark:hover:font-bold hover:font-bold">
                           Angular
                         </span>
-                        <span className="text-[10px] px-2 py-0.5 rounded-lg border border-blue-500/20 bg-blue-500/10 text-blue-500">
+                        <span className="text-[10px] w-15 text-center px-2 py-0.5 rounded-lg border border-blue-500/20 bg-blue-500/10 text-blue-500 dark:hover:font-bold hover:font-bold">
                           Node.js
                         </span>
-                        <span className="text-[10px] px-2 py-0.5 rounded-lg border border-indigo-500/20 bg-indigo-500/10 text-indigo-500">
+                        <span className="text-[10px] w-20 text-center px-2 py-0.5 rounded-lg border border-indigo-500/20 bg-indigo-500/10 text-indigo-500 dark:hover:font-bold hover:font-bold">
                           PostgreSQL
                         </span>
                       </>
@@ -469,7 +488,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex flex-col md:flex-row md:items-center justify-between p-5 rounded-[1rem]
-                     border border-slate-100 dark:border-slate-800/50
+                    border border-slate-100 dark:border-slate-800/50
                      bg-slate-50/50 dark:bg-slate-800/20
                      hover:border-cyan-500/50 dark:hover:border-cyan-500/30
                      hover:bg-white dark:hover:bg-slate-800/40
