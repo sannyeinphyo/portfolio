@@ -132,18 +132,21 @@ export default function Home() {
     {
       role: "Full Stack Developer - Intern",
       company: "Ultimate Solution Company",
-      link : "",
+      link: "",
       duration: "Internship",
-      project : [{name: "Intern Link" , color : "bg-blue-500"}],
+      project: [{ name: "Intern Link", color: "bg-blue-500" }],
       description:
         "Built responsive dashboards using React, Next.js, Node.js, Tailwind, and MUI.",
     },
     {
       role: "Full Stack Developer",
       company: "Myanmar Information Technology ( MIT )",
-      link : "https://mit.com.mm/",
+      link: "https://mit.com.mm/",
       duration: "2025 - Present",
-      project : [{name : "HxM" , color : "bg-blue-500"},{name : "A365", color : "bg-blue-500"}],
+      project: [
+        { name: "HxM", color: "bg-blue-500" },
+        { name: "A365", color: "bg-blue-500" },
+      ],
       description:
         "Working on HR Software System using Angular , Node.js and Postgres  ",
     },
@@ -157,259 +160,176 @@ export default function Home() {
       link: "https://ucsh.edu.mm/",
     },
   ];
-  return (
-    <div className="relative bg-dark-900 text-white flex flex-col gap-12 overflow-hidden w-full">
-      <motion.div
-        style={{ y: smoothY1 }}
-        className="absolute top-1 -left-20 w-[500px] h-[500px]  dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none z-0"
-      />
-      <motion.div
-        style={{ y: smoothY2, scale: smoothScale }}
-        className="absolute left-1/2 top-1/4 -translate-x-1/2 w-[500px] h-[500px] dark:bg-blue-600/10 rounded-full blur-[120px] pointer-events-none z-0"
-      />
-      <motion.div
-        style={{ y: smoothY1 }}
-        className="absolute -right-20 top-1/2 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none z-0"
-      />
-      <div className="flex flex-col gap-12 px-4 py-4 ">
-        <section className="relative w-full min-h-screen flex flex-col items-center justify-center text-center">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          className="relative z-10 flex flex-col items-center justify-center text-center space-y-6"
-        >
-          <div className="space-y-2">
-            <motion.h1
-              variants={fadeUp}
-              className="text-5xl md:text-8xl font-black tracking-tight text-slate-900 dark:text-white"
-            >
-              San Nyein{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
-                Phyo
-              </span>
-            </motion.h1>
+return (
+    <div className="relative bg-slate-950 text-white flex flex-col gap-12 overflow-hidden w-full select-none">
+      <div className="absolute top-1 -left-20 w-[400px] md:w-[600px] h-[400px] md:h-[600px] rounded-full pointer-events-none z-0 animate-pulse bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.15)_0%,transparent_70%)]" />
+      <div className="absolute left-1/2 top-1/4 -translate-x-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] rounded-full pointer-events-none z-0 animate-pulse [animation-delay:1s] bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.12)_0%,transparent_70%)]" />
+      <div className="absolute -right-20 top-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] rounded-full pointer-events-none z-0 animate-pulse [animation-delay:2s] bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.12)_0%,transparent_70%)]" />
 
-            <motion.div
-              variants={fadeUp}
-              className="text-2xl md:text-4xl font-bold text-slate-600 dark:text-slate-400"
-            >
-              Full-stack Developer
-            </motion.div>
-          </div>
+      <div className="flex flex-col gap-12 px-4 py-4 z-10 max-w-7xl mx-auto w-full">
+        <section className="relative w-full min-h-[100vh] flex flex-col items-center justify-center text-center">
+          <div className="flex flex-col items-center justify-center text-center space-y-6 animate-fade-in">
+            <div className="space-y-2">
+              <h1 className="text-5xl md:text-8xl font-black tracking-tight text-white">
+                San Nyein{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                  Phyo
+                </span>
+              </h1>
+              <div className="text-2xl md:text-4xl font-bold text-slate-400">
+                Full-stack Developer
+              </div>
+            </div>
 
-          <div className="max-w-2xl min-h-[3rem]">
-            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
-              <Typewriter
-                cursor={true}
-                cursorStyle={"|"}
-                cursorBlinking
-                words={[
-                  "Building scalable enterprise solutions with Angular.",
-                  "Architecting robust backends with Node.js & Postgres.",
-                  "Designing high-performance web applications.",
-                ]}
-              />
-            </p>
-          </div>
-
-          <motion.div
-            variants={fadeUp}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto"
-          >
-            {/* Download Resume Button (Solid Primary) */}
-            <a
-              href="/portfolio/resume/snp_resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 w-full sm:w-auto text-white dark:text-slate-900 font-bold rounded-2xl bg-slate-900 dark:bg-white transition-all duration-300  dark:hover:text-slate-950 shadow-md active:translate-y-0"
-            >
-              <span className="relative z-10">Download Resume</span>
-
-              <svg
-                className="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-y-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2.5}
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            <div className="max-w-2xl min-h-[3rem]">
+              <p className="text-lg md:text-xl text-slate-400 font-medium leading-relaxed">
+                <Typewriter
+                  cursor
+                  cursorStyle="|"
+                  cursorBlinking
+                  words={[
+                    "Building scalable enterprise solutions with Angular.",
+                    "Architecting robust backends with Node.js & Postgres.",
+                    "Designing high-performance web applications.",
+                  ]}
                 />
-              </svg>
-            </a>
+              </p>
+            </div>
 
-            {/* Contact Me Button (Solid Outline / Glass) */}
-            <a
-              href="mailto:sannyeinphyo@gmail.com"
-              className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 w-full sm:w-auto text-slate-800 dark:text-slate-200 font-bold rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-300 dark:border-slate-800 transition-all duration-300  active:translate-y-0"
-            >
-              <span>Contact Me</span>
+<div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 w-full">
+  {/* Download Resume Button */}
+  <a
+    href="/portfolio/resume/snp_resume.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group inline-flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 w-48 sm:w-auto text-slate-900 text-sm md:text-base font-bold rounded-xl md:rounded-2xl bg-white hover:bg-slate-100 transition-all duration-300 shadow-md active:scale-95"
+  >
+    <span className="whitespace-nowrap">Download Resume</span>
+    <svg
+      className="w-4 h-4 md:w-5 md:h-5 shrink-0 transition-transform duration-300 group-hover:translate-y-0.5"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2.5}
+        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+      />
+    </svg>
+  </a>
 
-              <svg
-                className="w-4 h-4 text-slate-500 dark:text-slate-400transition-all duration-300 group-hover:translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2.5}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </a>
-          </motion.div>
-        </motion.div>
+  {/* Contact Me Button */}
+  <a
+    href="mailto:sannyeinphyo@gmail.com"
+    className="group inline-flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 w-48 sm:w-auto text-slate-200 text-sm md:text-base font-bold rounded-xl md:rounded-2xl bg-slate-900/80 backdrop-blur-md border border-slate-800 hover:border-slate-700 transition-all duration-300 active:scale-95"
+  >
+    <span className="whitespace-nowrap">Contact Me</span>
+    <svg
+      className="w-4 h-4 text-slate-400 shrink-0 transition-all duration-300 group-hover:translate-x-1"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2.5}
+        d="M14 5l7 7m0 0l-7 7m7-7H3"
+      />
+    </svg>
+  </a>
+</div>
+          </div>
         </section>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="relative z-10 w-full group"
-        >
-          {/* Ambient Hover Glow */}
-          <div className="absolute -inset-0.5 rounded-md blur opacity-10 group-hover:opacity-25 transition duration-500 pointer-events-none" />
-
-          <div
-            className="relative flex flex-col gap-6 p-8 md:p-10 rounded-[2rem]
-                      border border-slate-200 dark:border-slate-800
-                      bg-white/50 dark:bg-slate-900/40 backdrop-blur-md
-                      shadow-sm transition-all duration-500"
-          >
-            {/* Header with Status Badge */}
+        <div className="w-full">
+          <div className="flex flex-col gap-6 p-8 md:p-10 rounded-[2rem] border border-slate-800 bg-slate-900/60 backdrop-blur-md shadow-sm transition-all duration-300 hover:border-slate-700">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-600 dark:text-cyan-400">
+                <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-400">
                   Introduction
                 </h2>
               </div>
-
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 Available for new opportunities
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight">
+            <h3 className="text-2xl md:text-3xl font-extrabold text-white leading-tight text-center">
               I build modern web applications that are{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
                 functional
               </span>{" "}
               and visually appealing.
             </h3>
 
-            {/* Description Paragraph */}
-        <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 font-normal leading-relaxed max-w-3xl">
-          Specializing in full-stack web and mobile development with{" "}
-          <strong className="text-slate-900 dark:text-white font-semibold">
-            Angular & React
-          </strong>{" "}
-          on the frontend, and{" "}
-          <strong className="text-slate-900 dark:text-white font-semibold">
-            Node.js, Nest.js & Postgres
-          </strong>{" "}
-          on the backend.
-        </p>
-
-            {/* Quick Highlights Row */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2 border-t border-slate-200/60 dark:border-slate-800/60">
-              <div>
-                <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Focus</div>
-                <div className="text-sm font-bold text-slate-800 dark:text-slate-200 mt-0.5">Full-stack & APIs</div>
-              </div>
-              <div>
-                <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Core Stack</div>
-                <div className="text-sm font-bold text-slate-800 dark:text-slate-200 mt-0.5">Angular / Node / Postgres</div>
-              </div>
-              <div className="col-span-2 sm:col-span-1">
-                <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Architecture</div>
-                <div className="text-sm font-bold text-slate-800 dark:text-slate-200 mt-0.5">Clean & Scalable</div>
-              </div>
+            <div className="flex justify-center">
+              <p className="text-base md:text-lg text-slate-400 font-normal leading-relaxed max-w-3xl text-center">
+                Specializing in full-stack web and mobile development with{" "}
+                <strong className="text-white font-semibold">Angular & React</strong> on the frontend, and{" "}
+                <strong className="text-white font-semibold">Node.js, Nest.js & Postgres</strong> on the backend.
+              </p>
             </div>
 
-            {/* Animated Line */}
-            <div className="pt-1">
-              <div className="h-1 w-20 bg-cyan-500/20 rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ x: "-100%" }}
-                  whileInView={{ x: "0%" }}
-                  transition={{ duration: 1, ease: "easeInOut" }}
-                  className="h-full bg-cyan-500 rounded-full"
-                />
+            <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-6 text-center pt-4 border-t border-slate-800">
+              <div>
+                <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Focus</div>
+                <div className="text-sm font-bold text-slate-200 mt-0.5">Full-stack & APIs</div>
+              </div>
+              <div>
+                <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Core Stack</div>
+                <div className="text-sm font-bold text-slate-200 mt-0.5">Angular / Node / Postgres</div>
+              </div>
+              <div className="col-span-2 md:col-span-1">
+                <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Architecture</div>
+                <div className="text-sm font-bold text-slate-200 mt-0.5">Clean & Scalable</div>
               </div>
             </div>
           </div>
-        </motion.div>
-        <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
-            className="p-5 md:p-8  rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md transition-all duration-500"
-          >
-              <div className="flex items-center gap-2 mb-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-600 dark:text-cyan-400">
-                  Technical Skills
-                </h2>
-              </div>
-            <motion.div
-              variants={{
-                visible: { transition: { staggerChildren: 0.05 } },
-              }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-3"
-            >
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Technical Skills */}
+          <div className="p-6 md:p-8 rounded-[2rem] border border-slate-800 bg-slate-900/30 backdrop-blur-md">
+            <div className="flex items-center gap-2 mb-6">
+              <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+              <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-400">
+                Technical Skills
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {skills.map((item, i) => (
-                <motion.div
+                <div
                   key={i}
-                  variants={listItem}
-                  className="flex items-center gap-3 p-3 rounded-xl border border-slate-100 dark:border-slate-800/50 bg-slate-50/50 dark:bg-slate-800/20 hover:scale-105 hover:border-cyan-500/50 transition-all duration-300"
+                  className="flex items-center gap-3 p-3 rounded-xl border border-slate-800/50 bg-slate-800/20 hover:scale-[1.02] hover:border-cyan-500/50 transition-all duration-300"
                 >
                   <span className="text-xl" style={{ color: item.color }}>
                     {item.icon}
                   </span>
-                  <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                  <span className="text-sm font-medium text-slate-200">
                     {item.name}
                   </span>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="p-8  rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md transition-all duration-500"
-          >
-              <div className="flex items-center gap-2 mb-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-600 dark:text-cyan-400">
-                  Get in Touch
-                </h2>
-              </div>
-
-            <motion.ul
-              initial="hidden"
-              whileInView="visible"
-              variants={{
-                visible: { transition: { staggerChildren: 0.1 } },
-              }}
-              className="space-y-4"
-            >
+          <div className="p-6 md:p-8 rounded-[2rem] border border-slate-800 bg-slate-900/30 backdrop-blur-md">
+            <div className="flex items-center gap-2 mb-6">
+              <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+              <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-400">
+                Get in Touch
+              </h2>
+            </div>
+            <ul className="space-y-4">
               {socials.map(
                 (item, i) =>
                   item.link && (
-                    <motion.li key={i} variants={listItem}>
+                    <li key={i}>
                       <a
                         href={item.link}
                         target="_blank"
@@ -420,92 +340,71 @@ export default function Home() {
                           {item.icon}
                         </span>
                         <div className="flex flex-col">
-                          <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                          <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                             {item.text.includes("@") ? "Email" : "Social"}
                           </span>
-                          <span className="text-slate-700 dark:text-slate-200 font-medium">
+                          <span className="text-slate-200 font-medium">
                             {item.text}
                           </span>
                         </div>
                       </a>
-                    </motion.li>
-                  ),
+                    </li>
+                  )
               )}
-            </motion.ul>
-          </motion.div>
+            </ul>
+          </div>
         </div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          className="p-8  rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md transition-all duration-500"
-        >
-              <div className="flex items-center gap-2 mb-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-600 dark:text-cyan-400">
-                  Experiences
-                </h2>
-              </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={{
-              visible: { transition: { staggerChildren: 0.2 } },
-            }}
-            className="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 md:ml-6 space-y-12"
-          >
+        {/* Experience Section */}
+        <div className="p-6 md:p-8 rounded-[2rem] border border-slate-800 bg-slate-900/30 backdrop-blur-md">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+            <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-400">
+              Experiences
+            </h2>
+          </div>
+
+          <div className="relative border-l-2 border-slate-800 ml-4 md:ml-6 space-y-12">
             {experience.map((item, i) => (
-              <motion.div
-                key={i}
-                variants={listItem}
-                className="relative pl-8 group"
-              >
-                <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full border-2 border-white dark:border-slate-900 bg-blue-600 group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(37,99,235,0.5)]"></div>
-
+              <div key={i} className="relative pl-8 group">
+                <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full border-2 border-slate-900 bg-blue-600 group-hover:scale-125 transition-transform duration-300 shadow-[0_0_10px_rgba(37,99,235,0.5)]" />
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                    <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">
+                    <h3 className="text-lg md:text-xl font-bold text-white">
                       {item.role}
                     </h3>
                     <span
-                      className={`inline-block px-3 py-1 rounded-md text-xs font-bold tracking-wider uppercase w-fit
-                    ${
-                      item.duration.toLowerCase().includes("present")
-                        ? "bg-blue-100 text-blue-700 dark:bg-blue-600 dark:text-blue-100"
-                        : "bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400"
-                    } `}
+                      className={`inline-block px-3 py-1 rounded-md text-xs font-bold tracking-wider uppercase w-fit ${
+                        item.duration.toLowerCase().includes("present")
+                          ? "bg-blue-600/20 text-blue-400 border border-blue-500/30"
+                          : "bg-slate-800 text-slate-400"
+                      }`}
                     >
                       {item.duration}
                     </span>
                   </div>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 font-semibold text-md md:text-lg w-fit transition-colors"
+                  >
+                    {item.company}
+                  </a>
 
-                  <div className="text-blue-600 dark:text-blue-400 font-semibold text-md md:text-lg flex items-center gap-2">
-                    <span>
-                      <a href= {item.link} blank="">
-                      {item.company}
-                      </a>
-                      </span>
-                  </div>
-
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+                  <p className="text-slate-400 leading-relaxed max-w-2xl">
                     {item.description}
                   </p>
 
                   {item.project && item.project.length > 0 && (
                     <div className="flex flex-wrap items-center gap-2 pt-1">
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mr-1">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-500 mr-1">
                         {item.project.length > 1 ? "Projects" : "Project"}:
                       </span>
                       {item.project.map((p, index) => (
                         <span
                           key={index}
-                          className="px-2.5 py-0.5 rounded-md text-xs font-semibold tracking-wide
-                                    bg-blue-500/10 text-blue-500 dark:text-blue-400 border border-blue-500/20
-                                    transition-all duration-300 ease-in-out cursor-pointer
-                                    hover:bg-blue-500 hover:text-white dark:hover:text-white
-                                    hover:border-blue-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-500/25"
+                          className="px-2.5 py-0.5 rounded-md text-xs font-semibold tracking-wide bg-blue-500/10 text-blue-400 border border-blue-500/20 transition-all duration-300 hover:bg-blue-500 hover:text-white"
                         >
                           {p.name}
                         </span>
@@ -514,127 +413,92 @@ export default function Home() {
                   )}
 
                   <div className="flex flex-wrap gap-2 mt-2">
-                    {item.company.includes("Ultimate") ? (
+                    {item.company.includes("Ultimate") && (
                       <>
-                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-green-500/20 bg-green-500/10 text-green-500 cursor-pointer transition-all duration-300 ease-in-out hover:bg-green-500 hover:text-white hover:border-green-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-green-500/25">
-                          Next.js
-                        </span>
-                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-blue-500/20 bg-blue-500/10 text-blue-500 cursor-pointer transition-all duration-300 ease-in-out hover:bg-blue-500 hover:text-white hover:border-blue-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-500/25">
-                          Prisma
-                        </span>
-                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-indigo-500/20 bg-indigo-500/10 text-indigo-500 cursor-pointer transition-all duration-300 ease-in-out hover:bg-indigo-500 hover:text-white hover:border-indigo-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-indigo-500/25">
-                          PostgreSQL
-                        </span>
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-green-500/20 bg-green-500/10 text-green-400">Next.js</span>
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-blue-500/20 bg-blue-500/10 text-blue-400">Prisma</span>
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-indigo-500/20 bg-indigo-500/10 text-indigo-400">PostgreSQL</span>
                       </>
-                    ) : null}
-                    {item.company.includes("MIT") ? (
+                    )}
+                    {item.company.includes("MIT") && (
                       <>
-                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-red-500/20 bg-red-500/10 text-red-500 cursor-pointer transition-all duration-300 ease-in-out hover:bg-red-500 hover:text-white hover:border-red-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-red-500/25">
-                          Angular
-                        </span>
-                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-blue-500/20 bg-blue-500/10 text-blue-500 cursor-pointer transition-all duration-300 ease-in-out hover:bg-blue-500 hover:text-white hover:border-blue-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-blue-500/25">
-                          Node.js
-                        </span>
-                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-indigo-500/20 bg-indigo-500/10 text-indigo-500 cursor-pointer transition-all duration-300 ease-in-out hover:bg-indigo-500 hover:text-white hover:border-indigo-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-indigo-500/25">
-                          PostgreSQL
-                        </span>
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-red-500/20 bg-red-500/10 text-red-400">Angular</span>
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-blue-500/20 bg-blue-500/10 text-blue-400">Node.js</span>
+                        <span className="text-[10px] px-2.5 py-0.5 rounded-md font-semibold tracking-wide border border-indigo-500/20 bg-indigo-500/10 text-indigo-400">PostgreSQL</span>
                       </>
-                    ) : null}
+                    )}
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-        <div className="p-8  rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 backdrop-blur-md shadow-sm transition-all duration-500">
-              <div className="flex items-center gap-2 mb-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-600 dark:text-cyan-400">
-                  Edication
-                </h2>
               </div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.15 } },
-            }}
-            className="space-y-4"
-          >
-            {education.map((item, i) => (
-              <motion.div key={i} variants={listItem} className="group">
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col md:flex-row md:items-center justify-between p-5 rounded-[1rem]
-                    border border-slate-100 dark:border-slate-800/50
-                     bg-slate-50/50 dark:bg-slate-800/20
-                     hover:border-cyan-500/50 dark:hover:border-cyan-500/30
-                     hover:bg-white dark:hover:bg-slate-800/40
-                     hover:shadow-xl hover:shadow-cyan-500/5 transition-all duration-300"
-                >
-                  <div className="flex flex-col gap-1">
-                    <span className="text-md md:text-lg font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                      {item.degree}
-                    </span>
-                    <span className="text-slate-600 dark:text-slate-400 text-sm md:font-medium">
-                      {item.institution}
-                    </span>
-                  </div>
-
-                  <div className="mt-3 md:mt-0 flex items-center gap-4">
-                    <span className="text-xs font-bold tracking-widest text-slate-500 dark:text-slate-500 bg-slate-200/50 dark:bg-slate-800 px-3 py-1 rounded-full uppercase">
-                      {item.year}
-                    </span>
-                    <svg
-                      className="w-4 h-4 text-slate-400 group-hover:text-cyan-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </div>
-                </a>
-              </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="p-8  rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white/30 dark:bg-slate-900/20 backdrop-blur-xl transition-all duration-500"
-        >
-              <div className="flex items-center gap-2 mb-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-600 dark:text-cyan-400">
-                  Featured Projects
-                </h2>
-              </div>
+        <div className="p-6 md:p-8 rounded-[2rem] border border-slate-800 bg-slate-900/30 backdrop-blur-md shadow-sm">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+            <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-400">
+              Education
+            </h2>
+          </div>
+
+          <div className="space-y-4">
+            {education.map((item, i) => (
+              <a
+                key={i}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col md:flex-row md:items-center justify-between p-5 rounded-xl border border-slate-800/50 bg-slate-800/20 hover:border-cyan-500/40 hover:bg-slate-800/40 transition-all duration-300"
+              >
+                <div className="flex flex-col gap-1">
+                  <span className="text-md md:text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">
+                    {item.degree}
+                  </span>
+                  <span className="text-slate-400 text-sm md:font-medium">
+                    {item.institution}
+                  </span>
+                </div>
+
+                <div className="mt-3 md:mt-0 flex items-center gap-4">
+                  <span className="text-xs font-bold tracking-widest text-slate-400 bg-slate-800 px-3 py-1 rounded-full uppercase border border-slate-700">
+                    {item.year}
+                  </span>
+                  <svg
+                    className="w-4 h-4 text-slate-400 group-hover:text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="p-6 md:p-8 rounded-[2rem] border border-slate-800 bg-slate-900/20 backdrop-blur-xl">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse" />
+            <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-cyan-400">
+              Featured Projects
+            </h2>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, i) => (
-              <motion.div
+              <div
                 key={i}
-                variants={listItem}
-                whileHover={{ y: -8 }}
-                className="group relative flex flex-col p-6 rounded-[1rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-300"
+                className="group relative flex flex-col p-6 rounded-2xl border border-slate-800 bg-slate-900/80 hover:border-slate-700 transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl"></div>
-
                 <div className="flex justify-between items-start mb-4">
-                  <div className="p-3 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+                  <div className="p-3 rounded-lg bg-indigo-500/10 text-indigo-400">
                     <svg
                       className="w-6 h-6"
                       fill="none"
@@ -649,25 +513,25 @@ export default function Home() {
                       />
                     </svg>
                   </div>
-                  <div className="flex gap-3">
-                    <button className="text-slate-400 hover:text-indigo-500 transition-colors">
-                      <a href={project.github}>
-                        <FaGithub size={18} />
-                      </a>
-                    </button>
-                    {/* <button className="text-slate-400 hover:text-indigo-500 transition-colors">
-                    <FaExternalLinkAlt size={16} />
-                  </button> */}
-                  </div>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-slate-400 hover:text-indigo-400 transition-colors p-1"
+                    >
+                      <FaGithub size={20} />
+                    </a>
+                  )}
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-500 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
                   {typeof project === "string"
                     ? project.split(":")[0]
                     : project.title}
                 </h3>
 
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-grow">
+                <p className="text-slate-400 text-sm leading-relaxed flex-grow">
                   {typeof project === "string"
                     ? project.split(":")[1]
                     : project.desc}
@@ -677,31 +541,17 @@ export default function Home() {
                   {(project.tech || ["React", "Node.js"]).map((t) => (
                     <span
                       key={t}
-                      className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
+                      className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 border border-slate-700"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
-        {/* <div
-        style={{ fontFamily: "Arial, sans-serif", width: "100%" }}
-        className="flex flex-col items-center"
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2 }}
-          viewport={{ amount: 0.2 }}
-          className="text-sm text-gray-400 mt-4 justify-center text-center"
-        >
-          * Swipe left/right to navigate between pages
-        </motion.div>
-      </div> */}
+        </div>
       </div>
     </div>
-  );
+);
 }
