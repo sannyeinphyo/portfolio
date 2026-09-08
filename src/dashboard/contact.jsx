@@ -1,20 +1,9 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { FaAddressBook, FaMailBulk, FaGithub } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
 
 export default function ContactSection() {
-  const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
-
-  const containerVariants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.1 } },
-  };
-
   const [formData, setFormData] = useState({
     name: "",
     _replyto: "",
@@ -40,33 +29,41 @@ export default function ContactSection() {
   };
 
   return (
+    <div className="relative min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white flex flex-col items-center justify-center p-6 md:p-12 lg:p-20 overflow-hidden w-full select-none transition-colors duration-500">
 
-  <div className="relative min-h-screen rounded-2xl flex flex-col items-center pt-24 md:pt-32 p-4 md:p-8 transition-all duration-500 overflow-hidden">
-    <div className="absolute top-1/4 -right-20 w-80 h-80 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 max-w-5xl w-full space-y-10 p-8 md:p-12 rounded-[2rem] bg-white/70 dark:bg-gray-800/40
-               backdrop-blur-2xl border border-white/20 dark:border-white/10 shadow-2xl shadow-black/5"
-      >
-        <motion.div className="text-center space-y-2" variants={fadeUp}>
-          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+      {/* Dynamic Glow Orbs for Light & Dark */}
+      <div className="absolute top-1/4 -right-20 w-[400px] md:w-[500px] h-[400px] md:h-[500px] rounded-full pointer-events-none z-0 animate-pulse bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.15)_0%,transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.15)_0%,transparent_70%)]" />
+      <div className="absolute top-1/2 -left-20 w-[400px] md:w-[500px] h-[400px] md:h-[500px] rounded-full pointer-events-none z-0 animate-pulse [animation-delay:1.5s] bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.15)_0%,transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.12)_0%,transparent_70%)]" />
+
+      {/* Main Glass Card */}
+      <div className="relative z-10 max-w-5xl mt-12 w-full space-y-10 p-6 md:p-10 rounded-[2rem] border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md shadow-xl dark:shadow-none transition-all duration-500">
+
+        {/* Header */}
+        <div className="text-center space-y-3">
+          <div className="inline-flex items-center gap-2 justify-center">
+            <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 dark:bg-cyan-500 animate-pulse" />
+            <h2 className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-indigo-600 dark:text-cyan-400">
+              Contact
+            </h2>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             Get in{" "}
-            <span className="text-indigo-600 dark:text-blue-500">Touch</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-cyan-400 dark:to-blue-500">
+              Touch
+            </span>
           </h2>
-          <p className="text-slate-500 dark:text-gray-400 font-medium">
+          <p className="text-slate-600 dark:text-slate-400 font-medium text-sm md:text-base">
             Have a project in mind? Let's build it together.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={fadeUp}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start"
-        >
-          <motion.div variants={fadeUp} className="space-y-4">
+        {/* Content Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+
+          {/* Contact Info Cards */}
+          <div className="space-y-4">
             <ContactInfoCard
-              icon={<FaAddressBook className="text-teal-500" />}
+              icon={<FaAddressBook className="text-indigo-500 dark:text-cyan-400" />}
               title="Address"
               detail="Yangon, Myanmar"
             />
@@ -77,7 +74,7 @@ export default function ContactSection() {
               className="block"
             >
               <ContactInfoCard
-                icon={<FaMailBulk className="text-yellow-500" />}
+                icon={<FaMailBulk className="text-blue-500 dark:text-blue-400" />}
                 title="Email"
                 detail="sannyeinphyo@gmail.com"
               />
@@ -89,26 +86,21 @@ export default function ContactSection() {
               className="block"
             >
               <ContactInfoCard
-                icon={<FaGithub className="text-slate-800 dark:text-white" />}
+                icon={<FaGithub className="text-slate-800 dark:text-slate-200" />}
                 title="GitHub"
                 detail="github.com/sannyeinphyo"
               />
             </a>
-          </motion.div>
+          </div>
+
+          {/* Contact Form */}
           <form
             action="https://formspree.io/f/xjkevvvy"
             method="POST"
             onSubmit={handleSubmit}
-            className="md:col-span-2 flex flex-col gap-4
-             bg-white/50 dark:bg-white/5
-             p-6 md:p-8 rounded-3xl
-             border border-slate-200 dark:border-white/10
-             backdrop-blur-xl shadow-xl dark:shadow-none"
+            className="md:col-span-2 flex flex-col gap-4 p-6 md:p-8 rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/40 backdrop-blur-md shadow-sm dark:shadow-none transition-colors duration-500"
           >
-            <motion.div
-              variants={fadeUp}
-              className="grid grid-cols-1 md:grid-cols-2 gap-4"
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
                 name="name"
@@ -118,12 +110,7 @@ export default function ContactSection() {
                 }
                 placeholder="Name"
                 required
-                className="p-4 rounded-2xl bg-white dark:bg-slate-900/50
-                 border border-slate-200 dark:border-white/10
-                 text-slate-900 dark:text-white
-                 placeholder:text-slate-400 dark:placeholder:text-slate-500
-                 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-blue-600
-                 outline-none transition-all"
+                className="p-4 rounded-xl bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-indigo-500 dark:focus:border-cyan-500 focus:ring-1 focus:ring-indigo-500 dark:focus:ring-cyan-500 outline-none transition-all duration-300 text-sm"
               />
               <input
                 type="email"
@@ -134,79 +121,64 @@ export default function ContactSection() {
                 }
                 placeholder="Email"
                 required
-                className="p-4 rounded-2xl bg-white dark:bg-slate-900/50
-                 border border-slate-200 dark:border-white/10
-                 text-slate-900 dark:text-white
-                 placeholder:text-slate-400 dark:placeholder:text-slate-500
-                 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-blue-600
-                 outline-none transition-all"
+                className="p-4 rounded-xl bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-indigo-500 dark:focus:border-cyan-500 focus:ring-1 focus:ring-indigo-500 dark:focus:ring-cyan-500 outline-none transition-all duration-300 text-sm"
               />
-            </motion.div>
-            <motion.div variants={fadeUp} className="grid grid-cols-1">
+            </div>
+            <div>
               <textarea
                 name="message"
+                rows="4"
                 value={formData.message}
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
                 }
                 placeholder="Your Message..."
                 required
-                className="p-4 rounded-2xl bg-white dark:bg-slate-900/50
-               border border-slate-200 dark:border-white/10
-               text-slate-900 dark:text-white
-               placeholder:text-slate-400 dark:placeholder:text-slate-500
-               focus:ring-2 focus:ring-indigo-500 dark:focus:ring-blue-600
-               outline-none resize-none transition-all"
+                className="w-full p-4 rounded-xl bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-indigo-500 dark:focus:border-cyan-500 focus:ring-1 focus:ring-indigo-500 dark:focus:ring-cyan-500 outline-none resize-none transition-all duration-300 text-sm"
               />
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeUp} className="flex justify-center mt-2">
-              <motion.button
+            <div className="flex justify-center pt-2">
+              <button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-block px-10 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-bold shadow-lg hover:shadow-indigo-500/20 transition-all hover:-translate-y-1"
+                className="w-48 sm:w-auto px-8 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-bold text-sm md:text-base hover:bg-slate-800 dark:hover:bg-slate-100 transition-all duration-300 shadow-md active:scale-95"
               >
                 Send Message
-              </motion.button>
-            </motion.div>
+              </button>
+            </div>
           </form>
-        </motion.div>
-        <footer>
-          <div className="max-w-full min-h-[3rem] justify-center text-center">
-            <p className="text-sm md:text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
-              <Typewriter
-                cursor={true}
-                cursorStyle={"|"}
-                cursorBlinking
-                words={[
-                  "Let's fly to moon together.",
-                  "Innovation starts with a single conversation.",
-                  "May our collaboration be bug-free 🐛❌.",
-                  "Let’s turn coffee into magic ✨☕",
-                ]}
-              />
-            </p>
-          </div>
+        </div>
+
+        {/* Footer Typewriter */}
+        <footer className="pt-4 border-t border-slate-200 dark:border-slate-800/60 text-center">
+          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+            <Typewriter
+              cursor
+              cursorStyle="|"
+              cursorBlinking
+              words={[
+                "Let's fly to moon together.",
+                "Innovation starts with a single conversation.",
+                "May our collaboration be bug-free.",
+                "Let’s turn coffee into magic.",
+              ]}
+            />
+          </p>
         </footer>
-      </motion.div>
+      </div>
     </div>
   );
 }
 
 function ContactInfoCard({ icon, title, detail }) {
   return (
-    <div
-      className="p-4 rounded-2xl flex items-center gap-4 transition-all duration-500
-      bg-white border border-slate-200 shadow-sm
-      dark:bg-gray-800/30 dark:border-gray-700 dark:shadow-none"
-    >
-      <div className="text-2xl">{icon}</div>
+    <div className="p-4 rounded-xl flex items-center gap-4 transition-all duration-300 border border-slate-200 dark:border-slate-800/50 bg-white/80 dark:bg-slate-800/20 hover:border-indigo-500/50 dark:hover:border-cyan-500/50 hover:bg-slate-50 dark:hover:bg-slate-800/40 shadow-sm dark:shadow-none">
+      <div className="text-xl shrink-0">{icon}</div>
       <div className="min-w-0">
-        <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+        <h4 className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
           {title}
         </h4>
-        <p className="text-sm text-slate-700 dark:text-slate-200 font-medium truncate  hover:text-blue-500">
+        <p className="text-sm text-slate-800 dark:text-slate-200 font-medium truncate hover:text-indigo-600 dark:hover:text-cyan-400 transition-colors">
           {detail}
         </p>
       </div>

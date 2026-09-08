@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from "react"; // Added useRef and useLayoutEffect
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FaSun, FaMoon } from "react-icons/fa";
 
@@ -24,7 +24,6 @@ export default function NavBar() {
       const activeLink = navRef.current?.querySelector(".active-link");
       if (activeLink) {
         const { offsetLeft, offsetWidth } = activeLink;
-        // console.log(activeLink);
         setIndicatorStyle({
           left: offsetLeft,
           width: offsetWidth,
@@ -53,7 +52,7 @@ export default function NavBar() {
     }`;
 
   return (
-    <div className="fixed bottom-4 md:bottom-auto md:top-0 left-0 w-full z-10000 flex justify-center p-2 md:p-4">
+    <div className="fixed bottom-4 md:bottom-auto md:top-0 left-0 w-full z-[10000] flex justify-center p-2 md:p-4">
       <nav
         ref={navRef}
         className="relative flex items-center gap-1 sm:gap-2 p-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/50 dark:border-white/10 shadow-lg rounded-2xl w-full max-w-fit justify-center"
@@ -84,16 +83,26 @@ export default function NavBar() {
 
         <div className="w-[1px] h-5 bg-slate-200 dark:bg-white/10 mx-1 z-10"></div>
 
+        {/* Fixed & Animated Theme Toggle Button */}
         <button
           onClick={toggleTheme}
-          className="relative z-10 p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 transition-all duration-300 active:scale-90 shrink-0 justify-content-center align-items-center"
+          aria-label="Toggle Theme"
+          className="relative z-10 flex items-center justify-center p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 transition-colors duration-300 active:scale-90 shrink-0"
         >
-          <div className="relative w-4 h-4 sm:w-5 sm:h-5 overflow-hidden">
+          <div className="relative w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center overflow-hidden">
             <FaSun
-              className={`absolute inset-0 text-yellow-400 transition-all duration-500 transform ${isDark ? "translate-x-0" : "translate-x-10 opacity-0"}`}
+              className={`absolute w-full h-full text-amber-400 transition-all duration-500 transform ${
+                isDark
+                  ? "rotate-0 scale-100 opacity-100"
+                  : "-rotate-90 scale-0 opacity-0"
+              }`}
             />
             <FaMoon
-              className={`absolute inset-0 text-indigo-600 transition-all duration-500 transform ${!isDark ? "translate-x-0" : "-translate-x-10 opacity-0"}`}
+              className={`absolute w-full h-full text-indigo-500 transition-all duration-500 transform ${
+                !isDark
+                  ? "rotate-0 scale-100 opacity-100"
+                  : "rotate-90 scale-0 opacity-0"
+              }`}
             />
           </div>
         </button>

@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useGesture } from "@use-gesture/react";
 import { AppRouter } from "./core/routes/appRoute";
 import NavBar from "./components/NavBar";
+import CatNavigator from "./components/catNavigator";
 
 const routeOrder = [
   "/home",
@@ -31,7 +32,9 @@ export default function App() {
   });
 
   return (
+
     <div className=" flex flex-col-reverse md:flex-col overflow-hidden bg-slate-50 dark:bg-gray-900">
+      <CatNavigator/>
       <NavBar />
       <div
         className="flex-1 overflow-y-auto overflow-x-hidden text-cyan-400 mb-16 md:mb-0"
