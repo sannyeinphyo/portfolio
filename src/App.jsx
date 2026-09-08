@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useGesture } from "@use-gesture/react";
 import { AppRouter } from "./core/routes/appRoute";
@@ -13,6 +13,7 @@ const routeOrder = [
   // "/download",
   "/side-quest",
 ];
+
 export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,7 +21,6 @@ export default function App() {
   const bind = useGesture({
     onDrag: ({ swipe: [swipeX] }) => {
       const currentIndex = routeOrder.indexOf(location.pathname);
-      // Index Check
       if (currentIndex === -1) return;
 
       if (swipeX === -1 && currentIndex < routeOrder.length - 1) {
@@ -32,8 +32,7 @@ export default function App() {
   });
 
   return (
-
-    <div className=" flex flex-col-reverse md:flex-col overflow-hidden bg-slate-50 dark:bg-gray-900">
+    <div className="flex flex-col-reverse md:flex-col overflow-hidden bg-slate-50 dark:bg-gray-900">
       <CatNavigator/>
       <NavBar />
       <div
@@ -41,7 +40,10 @@ export default function App() {
         {...bind()}
         style={{ touchAction: "pan-y" }}
       >
-        <AppRouter />
+        {/* ✅ Wrap AppRouter with Suspense */}
+        <Suspense fallback={<div className="p-4 text-center">Loading...</div>}>
+          <AppRouter />
+        </Suspense>
       </div>
     </div>
   );

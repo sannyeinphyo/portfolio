@@ -1,3 +1,4 @@
+import { lazy } from "react";
 const About = lazy(() => import('./about'));
 const Home = lazy(() => import('./home'));
 const ContactSection = lazy(() => import('./contact'));
