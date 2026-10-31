@@ -1,16 +1,18 @@
 import React from "react";
 
+const publicAsset = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 export default function DownloadSection() {
   const downloads = [
     {
       title: "Resume",
       description: "Download my latest resume (PDF).",
-      file: "/portfolio/resume/snp_resume.pdf",
+      file: publicAsset("resume/snp_resume.pdf"),
     },
     {
       title: "React Node.js Next.js Certificate",
       description: "Official Next.js, React, Node.js certification.",
-      file: "/portfolio/certificate/nextjs.jpg",
+      file: publicAsset("certificate/nextjs.jpg"),
     },
   ];
 

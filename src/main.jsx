@@ -6,7 +6,7 @@ import App from "./App.jsx";
 import { Toaster } from "react-hot-toast";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter basename="/">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Toaster position="top-center" />
       <App />
     </BrowserRouter>

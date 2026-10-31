@@ -15,6 +15,8 @@ const techColors = {
   "Prisma ORM Cloud Storage": "border-fuchsia-500/20 bg-fuchsia-500/10 text-fuchsia-700 dark:text-fuchsia-300",
 };
 
+const publicAsset = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 const projects = [
   {
     title: "Student Internship Portal",
@@ -34,10 +36,10 @@ const projects = [
     github: "https://github.com/sannyeinphyo/internlink",
     live: "https://sannyeinphyo.github.io/internlink",
     images: [
-      "/images/internlink.png",
-      "/images/images.jpg",
-      "/oggy.png",
-      "/images/chords_libary.png",
+      publicAsset("images/internlink.png"),
+      publicAsset("images/images.jpg"),
+      publicAsset("oggy.png"),
+      publicAsset("images/chords_libary.png"),
     ],
   },
   {
@@ -48,10 +50,10 @@ const projects = [
     github: "https://github.com/sannyeinphyo/portfolio",
     live: "https://sannyeinphyo.github.io/portfolio",
     images: [
-      "/images/internlink.png",
-      "/images/chords_libary.png",
-      "/images/images.jpg",
-      "/oggy.png",
+      publicAsset("images/internlink.png"),
+      publicAsset("images/chords_libary.png"),
+      publicAsset("images/images.jpg"),
+      publicAsset("oggy.png"),
     ],
   },
   {
@@ -66,10 +68,10 @@ const projects = [
     github: "https://github.com/sannyeinphyo/guitar",
     live: "https://guitar-azure.vercel.app/",
     images: [
-      "/images/chords_libary.png",
-      "/images/internlink.png",
-      "/images/images.jpg",
-      "/oggy.png",
+      publicAsset("images/chords_libary.png"),
+      publicAsset("images/internlink.png"),
+      publicAsset("images/images.jpg"),
+      publicAsset("oggy.png"),
     ],
   },
 ];

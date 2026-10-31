@@ -8,5 +8,6 @@ export default defineConfig({
     host: true,
     port: 5173,
   },
-  base: '/',
+  // This repository is published as a GitHub Pages project site.
+  base: '/portfolio/',
 });

@@ -26,6 +26,8 @@ import {
 import { Typewriter } from "react-simple-typewriter";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
+const publicAsset = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 export default function Home() {
   const { scrollY } = useScroll();
 
@@ -101,7 +103,7 @@ export default function Home() {
     {
       icon: (
         <img
-          src="/portfolio/resume/sannyeinphyo_jobnet.png"
+          src={publicAsset("resume/sannyeinphyo_jobnet.png")}
           style={{ width: 200 }}
         />
       ),
@@ -203,7 +205,7 @@ return (
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 w-full">
             {/* Download Resume Button */}
             <a
-              href="/portfolio/resume/snp_resume.pdf"
+              href={publicAsset("resume/snp_resume.pdf")}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 w-48 sm:w-auto text-white dark:text-slate-900 text-sm md:text-base font-bold rounded-xl md:rounded-2xl bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 transition-all duration-300 shadow-md active:scale-95"
