@@ -15,7 +15,7 @@ export const dashboardRoute = [
   {
     path: "",
     children: [
-      { index: true, element: <Navigate to = "home" replace/> },
+      { index: true, element: <Navigate to="/home" replace /> },
       { path: "home", element: <Home /> },
       { path: "project", element: <Project /> },
       { path: "about", element: <About /> },
