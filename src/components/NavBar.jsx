@@ -70,6 +70,9 @@ export default function NavBar() {
         <NavLink to="/home" className={linkClass}>
           Home
         </NavLink>
+        {/* <NavLink to="/project" className={linkClass}>
+          Projects
+        </NavLink> */}
         <NavLink to="/contact" className={linkClass}>
           Contact
         </NavLink>

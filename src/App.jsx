@@ -7,7 +7,7 @@ import CatNavigator from "./components/catNavigator";
 
 const routeOrder = [
   "/home",
-  // "/project",
+  "/project",
   "/contact",
   "/about",
   // "/download",
@@ -33,14 +33,14 @@ export default function App() {
 
   return (
     <div className="flex flex-col-reverse md:flex-col overflow-hidden bg-slate-50 dark:bg-gray-900">
-      <CatNavigator/>
+      {/* <CatNavigator/> */}
       <NavBar />
       <div
         className="flex-1 overflow-y-auto overflow-x-hidden text-cyan-400 mb-16 md:mb-0"
         {...bind()}
         style={{ touchAction: "pan-y" }}
       >
-        {/* ✅ Wrap AppRouter with Suspense */}
+        {/*  Wrap AppRouter with Suspense */}
         <Suspense fallback={<div className="p-4 text-center">Loading...</div>}>
           <AppRouter />
         </Suspense>
