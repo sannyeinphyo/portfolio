@@ -88,7 +88,7 @@ export default function Home() {
     {
       icon: <FaLinkedin className="text-blue-600 " />,
       text: "linkedin.com/in/sannyeinphyo",
-      link: "https://www.linkedin.com/in/san-nyein-phyo-45b309380",
+      link: "www.linkedin.com/in/sannyeinphyo",
     },
     {
       icon: <FaGithub className="dark:text-white text-gray-900 " />,
